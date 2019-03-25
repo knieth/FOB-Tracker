@@ -1,0 +1,59 @@
+//backup to excel - oks
+//cg global update realtime bugs - oks
+//
+
+
+//Global changes
+shipping realtime - oks
+add shipping status mtip,fts,tab - oks
+rename shipping to cv - oks
+mtip shipping button  - oks
+
+status updates
+mtip - oks 
+tip - oks
+tab - oks
+
+//local
+realtime changes - increase data usage
+
+//8/17/18
+local cv/cg - no realtime update
+local cv/cg shipping - no realtime update
+
+
+bugs
+save mtipsue issue -
+realtime mtip issue - oks
+local realtime issue - oks
+
+
+//need to add
+amdocs status cv - oks / cg
+transmittal - cg
+notes  - highlighted  - oks
+
+//remove
+amdocs done, done option
+
+
+//09/05/18
+
+added:
+assign feature
+re layout ui
+fix ship cg global display
+
+//09/06/18
+bugs
+n/a status remarks when assigning - done, (status ="n/a")
+inproofing, proofing done to add - done
+export .xls - done
+rework in cig local - done (trim problem)
+send to coordinator - done
+added logs history - done 
+date picker
+
+//9/10/18
+added status colors
+refin ui local cg/cv

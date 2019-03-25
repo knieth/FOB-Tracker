@@ -1,0 +1,3169 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      FOB Tracker
+    </title>
+
+	<link rel="apple-touch-icon" sizes="57x57" href="fav/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="fav/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="fav/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="fav/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="fav/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="fav/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="fav/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="fav/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="fav/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="fav/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="fav/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="fav/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="fav/favicon-16x16.png">
+	<link rel="manifest" href="fav/manifest.json">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="fav/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<!-- UIkit CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.12/css/uikit.min.css" />
+
+	<!-- UIkit JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.12/js/uikit.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.12/js/uikit-icons.min.js"></script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.deep_orange-teal.min.css" />
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.2.1/font-awesome-animation.min.css">
+		
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<link href="css/main.css" type="text/css" rel="stylesheet">
+
+
+
+
+  </head>
+
+  <body >
+
+	<!-- Navigation -->
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark ">
+    <a href="#home" class="navbar-brand "><span  uk-icon="icon:copy; ratio:1"></span>  FOB<small> Tracker</small></a>
+    <button class="navbar-toggler" data-toggle="collapse" data-target="#navBarDiv" ><span class="navbar-toggler-icon"></span></button>
+    <div id="navBarDiv" class="collapse navbar-collapse">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+    			<a class="nav-link "  target="_blank" href="https://docs.google.com/spreadsheets/d/1IC1WQz0WGcePud_v-zbALwE1iDutvjXnTf-by93L3xI/edit?pref=2&pli=1#gid=1516179961">Shipping Schedule</a>
+    		</li>
+    		<li class="nav-item">
+    			<a class="nav-link " target="_blank" href="https://docs.google.com/spreadsheets/d/194qNrnioaSu6wytzO1DknBEIrkg1jAgiRFGUpxArw8Q/edit?ts=59c2d14c#gid=1464698053">Error Tracker</a>
+    		</li>
+        <li class="nav-item">
+    			<a class="nav-link "  target="_blank" href="https://docs.google.com/spreadsheets/d/1M9mR1k11YY51dTorPQOfL-Pp721l3qpgAJHP4OpnlB4/edit#gid=0">Adherence Tracker</a>
+    		</li>
+        <li class="nav-item">
+    			<span class="nav-link "  href="#"></span>
+    		</li>
+        <li class="nav-item">
+    			<span class="nav-link "  href="#"></span>
+    		</li>
+        <!--<li class="nav-item"><i  class="nav-link fa fa-user-circle " style="font-size:24px;" > </i></li>-->
+		<li id="userBtn" class="nav-item dropdown">
+			<i class="nav-link dropdown-toggle" data-toggle="dropdown" ><i class="fa fa-user-circle" style="font-size:21px;"><span id="Email-display"></span></i></i>
+			<div class="dropdown-menu">
+			  <a class="dropdown-item text-danger" href="javascript:;" onclick="SignOut()" >Sign Out</a>
+			</div>
+		</li>
+        <!--<li id="logoutBtn" class="nav-item"><a class="nav-link text-danger" href="javascript:;" onclick="SignOut()" >Sign Out</a></li>-->
+
+      </ul>
+    </div>
+  </nav>
+  <!-- success  modal for Signup -->
+
+ <div  id="SignupSuccessModal" >
+			<div class="y text-center">
+				<h1 class="display-1"><span class="fa fa-check-circle-o text-success"></span></h1>
+				<h3 class="text-secondary">Sign Up Success!</h3>
+				<button class="btn btn-success" onclick="initializeNewUSer()">OK</button>
+			</div>
+
+
+ </div>
+  <!-- success  modal for adding-->
+ <div class="modal fade" id="addingSuccessModal" >
+	<div class="modal-dialog modal-dialog-centered modal-sm " >
+		<div class="modal-content no-round-border">
+
+			<div class="modal-body text-center">
+				<h1 class="display-1"><span class="fa fa-check-circle-o text-success"></span></h1>
+				<h3 class="text-secondary">Done!</h3>
+				<button class="btn btn-success btn-block no-round-border" id="adding-success-btn">OK</button>
+			</div>
+		</div>
+	</div>
+ </div>
+ 
+ <!-- success  modal for filter-->
+ <div class="modal fade" id="filterSuccessModal" >
+	<div class="modal-dialog modal-dialog-centered modal-sm " >
+		<div class="modal-content no-round-border">
+
+			<div class="modal-body text-center">
+				<h1 class="display-1"><span class="fa fa-check-circle-o text-success"></span></h1>
+				<h3 class="text-secondary">Done!</h3>
+				<button class="btn btn-success btn-block no-round-border" id="filter-success-btn">OK</button>
+			</div>
+		</div>
+	</div>
+ </div>
+
+  <!-- success  modal -->
+ <div class="modal fade" id="SuccessModal" >
+	<div class="modal-dialog modal-dialog-centered modal-sm " >
+		<div class="modal-content no-round-border">
+
+			<div class="modal-body text-center">
+				<h1 class="display-1"><span class="fa fa-check-circle-o text-success"></span></h1>
+				<h3 class="text-secondary">Done!</h3>
+				<button class="btn btn-success btn-block no-round-border" id="success-btn">OK</button>
+			</div>
+		</div>
+	</div>
+ </div>
+
+
+
+
+ <!-- error  modal -->
+ <div class="modal fade" id="ErrorModal" >
+	<div class="modal-dialog modal-dialog-centered modal-sm " >
+		<div class="modal-content no-round-border">
+
+			<div class="modal-body text-center">
+				<h1 class="display-1 "><span class="fa fa-check-time-o text-danger "></span></h1>
+				<h3 class="text-secondary">Error Occured!</h3>
+				<button class="btn btn-danger btn-block no-round-border" id="error-btn">OK</button>
+			</div>
+		</div>
+	</div>
+ </div>
+
+
+
+  <!--Sign up modal-->
+ <div class="modal fade" id="signUpModal" style="width:100%;">
+	<div class="modal-dialog modal-xl" >
+		<div class="modal-content no-round-border">
+			<div class="modal-header bg-dark text-light no-round-border">
+				<h2>Sign Up</h2>
+			</div>
+			<div class="modal-body">
+			<p class="text-danger" id="signUpError"></p>
+				<input class="form-control login-input" type="email" id="signUpEmail" placeholder="Email">
+				<input class="form-control " type="password" id="signUpPassword" placeholder="Password">
+				<input class="form-control " type="password" id="signUpConfirmPassword" placeholder="Confirm Password">
+			</div>
+			<div class="modal-footer ">
+        <div id="signUpProgress" class="mdl-spinner mdl-js-spinner is-active "></div>
+				<button type="button" class="btn btn-warning text-light no-round-border"  id="signUp-btn" onclick="signUp()">Sign Up</button>
+				<button type="button" class="btn btn-danger no-round-border" id="signup-close-btn" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
+ </div>
+
+ <!--reset password -->
+ <div class="modal fade" id="resetModal" style="width:100%;">
+	<div class="modal-dialog modal-xl no-round-border" >
+		<div class="modal-content ">
+			<div class="modal-header bg-dark text-light no-round-border">
+				<h2>Reset Password</h2>
+			</div>
+			<div class="modal-body">
+			<p class="text-danger" id="resetError"></p>
+				<input class="form-control login-input" type="email" id="resetEmail" placeholder="Email">
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-warning text-light no-round-border"  onclick="sendPasswordReset()">Send Reset Password</button>
+				<button type="button" class="btn btn-danger no-round-border" data-dismiss="modal">close</button>
+			</div>
+		</div>
+	</div>
+ </div>
+
+
+
+  <!--login-->
+
+
+   <div class="login-cover" >
+		<div class="login-dialog container bg-light ">
+		<center>
+			<h1 class="display-4">
+				<span  uk-icon="icon:copy; ratio:2"></span> FOB
+				<small> Tracker</small>
+			</h1>
+		</center>
+			<input class="form-control login-input" type="email" id="loginEmail" placeholder="Email">
+			<input class="form-control login-input" type="password" id="loginPassword" placeholder="Password">
+
+			<p id="loginError" class="text-danger"></p>
+			<button class="btn btn-warning btn-block text-light " id="loginBtn" onclick="login()">Sign In</button>
+			<br>
+
+
+			<center>
+				<div id="loginProgress" class="mdl-spinner mdl-js-spinner is-active"></div>
+				<button class="btn btn-light " id="signUpBtn" data-toggle="modal" data-target="#signUpModal">Sign Up</button>|<button class="btn btn-light " id="forgotPassBtn" data-toggle="modal" data-target="#resetModal">Forgot Password?</button>
+			</center>
+		</div>
+   </div>
+
+
+
+  <!-- nav tabs -->
+
+	<ul class="nav nav-tabs" role="tablist">
+		<li class="nav-item">
+			<a class="nav-link " id="global-tab" data-toggle="tab" href="#global-cont">Global</a>
+		</li>
+    <li class="nav-item">
+			<a class="nav-link " id="cv-tab" data-toggle="tab" href="#cv-cont">CV</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link " id="cg-tab" data-toggle="tab" href="#cg-cont">CIG</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link " id="dci-tab" data-toggle="tab" href="#dci-cont">DCI</a>
+		</li><!--
+		<li class="nav-item">
+			<a class="nav-link " id="shippingSchedLink-tab" data-toggle="tab" href="#shippingSchedLink-cont">Shipping Schedule</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link " id="errorLink-tab" data-toggle="tab" href="#errorLink-cont">Error Tracker</a>
+		</li>
+    <li class="nav-item">
+			<a class="nav-link " id="Adherence-tab" data-toggle="tab" href="#Adherence-cont">Adherence Tracker</a>
+		</li>-->
+		<li class="nav-item">
+			<a class="nav-link " id="act-tab" data-toggle="tab" href="#act-cont">Activity Log</a>
+		</li>
+	</ul>
+
+
+
+
+<div class="tab-content" >
+
+  <!--Adherence tracker link
+	<div id="Adherence-cont" class="sheet-link tab-pane container-fluid fade embed-responsive embed-responsive-16by9" >
+		<iframe class="embed-responsive-item" src="https://docs.google.com/spreadsheets/d/1M9mR1k11YY51dTorPQOfL-Pp721l3qpgAJHP4OpnlB4/edit#gid=0" width="100%"    scrolling="no"></iframe>
+
+	</div>
+  -->
+	<!--error tracker link
+	<div id="errorLink-cont" class=" sheet-link tab-pane container-fluid fade embed-responsive embed-responsive-16by9" >
+		<iframe class="embed-responsive-item" src="https://docs.google.com/spreadsheets/d/194qNrnioaSu6wytzO1DknBEIrkg1jAgiRFGUpxArw8Q/edit?ts=59c2d14c#gid=1464698053" width="100%"    scrolling="no"></iframe>
+
+	</div>
+-->
+	<!--shipping sched link
+	<div id="shippingSchedLink-cont" class="sheet-link tab-pane container-fluid fade embed-responsive embed-responsive-16by9" >
+		<iframe class="embed-responsive-item" src="https://docs.google.com/spreadsheets/d/1IC1WQz0WGcePud_v-zbALwE1iDutvjXnTf-by93L3xI/edit?pref=2&pli=1#gid=1516179961" width="100%"    scrolling="no"></iframe>
+
+	</div>-->
+  <!--Global cv-->
+
+
+         <div id="global-cont" class="tab-pane  cv-tab fade" style="width:100%;">
+           <!--nav tav global-->
+           <ul class="nav nav-tabs nav-justified" role="tablist">
+         		<li class="nav-item">
+         			<a class="nav-link lead " id="global-cv-tab" data-toggle="tab" href="#global-cv-cont"><h4>COVERS</h4></a>
+         		</li>
+             <li class="nav-item">
+         			<a class="nav-link lead " id="global-cg-tab" data-toggle="tab" href="#global-cg-cont"><h4>CUSTOMER GUIDES</h4></a>
+         		</li>
+         	</ul>
+           <!--nav tav global end-->
+           <div class="tab-content">
+
+             <div id="global-cv-cont" class="tab-pane  cv-tab fade">
+                  <h3>Global CV Tracker</h3>
+                 <button type="button" class="btn btn-default text-dark bg-light" disabled>
+                  Total Count <span class="badge badge-dark " id="globalCvCountText"> </span>
+                 </button>
+                 <button type="button" class="btn btn-warning text-light" data-toggle="modal" data-target="#globalshippingDataModal">
+                 <span id="global-cv-shipping-icon" class="fa fa-paper-plane "></span>
+                 CV Shipping <span class="badge badge-light " id="globalCvShipCountText"> </span>
+                 </button>
+				 
+				 
+                 <!--shipping-->
+
+                <!-- The Modal -->
+                <div class=" modal container-fluid" id="globalshippingDataModal" >
+                  <div class="modal-dialog modal-dialog-centered modal-lg">
+                  <div class="modal-content ">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header" >
+                    <h4 class="modal-title">Cover Shipping<small id="globaldate-indicator"></small></h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+
+                    <div >
+                      <table  class="table   table-hover data-container">
+                        <thead class="bg-secondary text-light">
+                          <tr >
+                            <td>Directory Code</td>
+                            <td>Directory Name</td>
+                            
+                            <td >Cover Status</td>
+                            <td >FTC/TIP Status</td>
+                            <td colspan="3">TAB Status</td>
+                          </tr>
+                        </thead>
+                        <tbody id="globalshipping_body">
+                        </tbody>
+                      </table>
+                    </div>
+
+                    </div>
+
+                    <!-- Modal footer -->
+                    <hr>
+                  </div>
+                  </div>
+                </div>
+
+                 <!-- end-->
+				 
+				 <!-- mtip shipping -->
+				
+				  <button type="button" class="btn btn-warning text-light" data-toggle="modal" data-target="#globalmtipshippingDataModal">
+                 <span id="global-mtip-shipping-icon" class="fa fa-paper-plane "></span>
+                  Mtip Shipping <span class="badge badge-light " id="globalMtipShipCountText"> </span>
+                 </button>
+				 
+				  <button class="uk-button uk-button-default uk-button-small float-right" data-toggle="modal" data-target="#CvLogModal"><span uk-icon="icon: history"></span> Logs</button>
+				<button class="uk-button uk-button-default uk-button-small float-right" id="Global-Cv-Export-btn"><span uk-icon="icon: pull"></span> Export/Backup</button>
+				 
+                 <!--shipping-->
+
+                <!-- The Modal -->
+                <div class="modal container-fluid" id="globalmtipshippingDataModal" >
+                  <div class="modal-dialog modal-dialog-centered modal-lg">
+                  <div class="modal-content ">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header" >
+                    <h4 class="modal-title">FTM/FTS/MTIP Shipping<small id="mtipglobaldate-indicator"></small></h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+
+                    <div >
+                      <table  class="table-container table   table-hover ">
+                        <thead class="bg-secondary text-light">
+                          <tr >
+                            <td>Directory Code</td>
+                            <td>Directory Name</td>
+                            
+                            <td colspan="3">FTM/FTS/MTIP Status</td>
+                          </tr>
+                        </thead>
+                        <tbody id="globalmtipshipping_body">
+                        </tbody>
+                      </table>
+                    </div>
+
+                    </div>
+
+                    <!-- Modal footer -->
+                    <hr>
+                  </div>
+                  </div>
+                </div>
+
+                 <!-- end-->
+				 
+				 
+				 
+                <hr>
+
+                <!-- Adding Data Form -->
+
+                <!-- Button to Open the Modal -->
+                <button type="button" class="uk-button uk-button-primary" data-toggle="modal" data-target="#globaladdDataModal">
+                <span uk-icon="plus-circle"></span>
+                   Directory
+                </button>
+
+                <!-- The Modal -->
+                <div class="modal" id="globaladdDataModal">
+                  <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                    <h4 class="modal-title" >Add Directory</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+
+                    <input class="form-control" id="globaldirectoryText" type="text"  placeholder="Directory code" required>
+                    <input class="form-control" id="globaldirectoryNameText" type="text"  placeholder="Directory name" required>
+                    <input class="form-control" id="globalypText" type="text"  placeholder="YPPA Code" required>
+					<div class="form-group">
+                      <label for="globalmtipdueText">MTIP Due at Printer</label>
+                      <input class="form-control" id="globalmtipdueText" type="date"  placeholder="MTIP Due at Printer" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="globaldueText">Cover Due at Printer</label>
+                      <input class="form-control" id="globaldueText" type="date"  placeholder="Cover Due at Printer" required>
+                    </div>
+					
+                    <!--<input class="form-control" id="remarksText" type="text"  placeholder="Remarks" required>-->
+
+
+
+                    <!--<input class="form-control" id="statusText" type="text"  placeholder="Status" required>-->
+                    <div class="form-group">
+                      <label for="globalstatusText">Cover Status</label>
+                      <select class="form-control" id="globalstatusText">
+
+
+                          <option value="n/a">n/a</option>
+                          
+                          <option value="In Progress">In Progress</option>
+                         <option value="Done">Done</option>
+                         <option value="In Proofing">In Proofing</option>
+                         <option value="Done Proofing">Done Proofing</option>
+                          <option value="Emailed">Emailed</option>
+                          <option value="Rework">Rework</option>
+                          <option value="Approved">Approved</option>
+                          <option value="Shipped">Shipped</option>
+                        
+                      </select>
+                    </div>
+					<div class="form-group">
+                      <label for="globalmtipstatusText">FTM/FTS/MTIP Status</label>
+                      <select class="form-control" id="globalmtipstatusText">
+
+
+                          <option value="n/a">n/a</option>
+						 
+                          <option value="In Progress">In Progress</option>
+                          <option value="Done">Done</option>
+						  <option value="In Proofing">In Proofing</option>
+                         <option value="Done Proofing">Done Proofing</option>
+                          <option value="Emailed">Emailed</option>
+                          <option value="Rework">Rework</option>
+                          <option value="Approved">Approved</option>
+                          <option value="Shipped">Shipped</option>
+                          
+                      </select>
+                    </div>
+					
+					<div class="form-group">
+                      <label for="globaltipstatusText">FTC/TIP Status</label>
+                      <select class="form-control" id="globaltipstatusText">
+
+
+                          <option value="n/a">n/a</option>
+						
+                          <option value="In Progress">In Progress</option>
+                      <option value="Done">Done</option>
+					  <option value="In Proofing">In Proofing</option>
+                         <option value="Done Proofing">Done Proofing</option>
+                          <option value="Emailed">Emailed</option>
+                          <option value="Rework">Rework</option>
+                          <option value="Approved">Approved</option>
+                          <option value="Shipped">Shipped</option>
+                      
+                      </select>
+                    </div>
+					
+					<div class="form-group">
+                      <label for="globaltabstatusText">TAB Status</label>
+                      <select class="form-control" id="globaltabstatusText">
+
+
+                          <option value="n/a">n/a</option>
+						  
+                          <option value="In Progress">In Progress</option>
+                        <option value="Done">Done</option>
+						<option value="In Proofing">In Proofing</option>
+                         <option value="Done Proofing">Done Proofing</option>
+                          <option value="Emailed">Emailed</option>
+                          <option value="Rework">Rework</option>
+                          <option value="Approved">Approved</option>
+                          <option value="Shipped">Shipped</option>
+                         
+                      </select>
+                    </div>
+					
+					<div class="form-group">
+                      <label for="globalamdocsstatusText">Amdocs Status</label>
+                      <select class="form-control" id="globalamdocsstatusText">
+
+
+                          <option value="n/a">n/a</option>
+                          <option value="Done">Done</option>
+                          
+                         
+                      </select>
+                    </div>
+					
+                    <button class="saveBtn uk-button uk-button-primary" onclick="save_Data_Global()"><span uk-icon="pull"></span> Save</button>
+
+                    </div>
+
+                    <!-- Modal footer -->
+
+                  </div>
+                  </div>
+                </div>
+
+                 <!--end of add data form -->
+
+				 <!-- Updating Add notes  Form -->
+
+                 <!-- Button to Open the Modal -->
+                <button type="button" class="uk-button uk-button-primary" data-toggle="modal" data-target="#globalnotesupdateStatusModal">
+                <span uk-icon="plus-circle"></span>
+                  Notes
+                </button>
+
+                <!-- The Modal -->
+                <div class="modal" id="globalnotesupdateStatusModal">
+                  <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                    <h4 class="modal-title">Add/Update Notes</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                    <div class="alert alert-success alert-dismissible" id="cvAlert">
+                      <a href="#" class="close">&times;</a>
+                      <strong>Success!</strong> Adding Data
+                      </div>
+
+                    <!--<input class="form-control" id="updatedirectoryText" type="text"  placeholder="Directory code" required>-->
+                      <div class="form-group">
+                        <label for="globalnotesupdatedirectoryText">Directory</label>
+                        <select class="form-control" id="globalnotesupdatedirectoryText">
+
+                        </select>
+                      </div>
+                    <!--<input class="form-control" id="updatestatusText" type="text"  placeholder="Status" required>-->
+                    <div class="form-group">
+                     
+                      
+					  <textarea id="globalnotesupdatestatusText" class="form-control" placeholder="Type your note here..."></textarea>
+                    </div>
+
+                    <button class="saveBtn uk-button uk-button-primary" onclick="update_note_Status_Global()"><span uk-icon="pull"></span> Save</button>
+                    </div>
+
+                    <!-- Modal footer -->
+
+                  </div>
+                  </div>
+                </div>
+                <!--update Status end-->
+				
+				
+				
+				<!-- Assign  Form -->
+
+                 <!-- Button to Open the Modal -->
+                <button type="button" class="uk-button uk-button-primary" data-toggle="modal" data-target="#globalAssignupdateStatusModal">
+                <span uk-icon="user"></span>
+                  Assign
+                </button>
+
+               
+				
+                <!-- The Modal -->
+                <div class="modal" id="globalAssignupdateStatusModal">
+                  <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                    <h4 class="modal-title">Assign</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                    <div class="alert alert-success alert-dismissible" id="cvAlert">
+                      <a href="#" class="close">&times;</a>
+                      <strong>Success!</strong> Adding Data
+                      </div>
+
+                      <div class="form-group">
+                        <label for="globalAssignupdatedirectoryText">Directory</label>
+                        <select class="form-control" id="globalAssignupdatedirectoryText">
+
+                        </select>
+                      </div>
+					  
+					  
+                      <div class="form-group">
+                        <label for="globalAssignArtistText">Artist</label>
+                        <select class="form-control" id="globalAssignArtistText">
+
+                        </select>
+                      </div>
+					  
+					  <div class="form-group">
+                        <label for="globalAssignProoferText">Proofer</label>
+                        <select class="form-control" id="globalAssignProoferText">
+
+                        </select>
+                      </div>
+					  
+					  
+					  
+                  
+
+                    <button class="saveBtn uk-button uk-button-primary" onclick="Assign_Global()"><span uk-icon="pull"></span> Save</button>
+                    </div>
+
+                    <!-- Modal footer -->
+
+                  </div>
+                  </div>
+                </div>
+                <!--update Status end-->
+              
+				
+				
+				
+				
+				
+				
+				
+				
+				<!--status grp buttons-->
+				
+				<div class="uk-inline" >
+				<button class="uk-button uk-button-default " type="button"><span uk-icon="file-edit"></span> Status</button>
+				<div uk-dropdown >
+					<ul class="uk-nav uk-dropdown-nav ">
+						<li class="uk-nav-header uk-text-success">Update Status</li>
+						<li class="uk-nav-divider"></li>
+						<li class="uk-active"><button type="button" class="uk-button uk-button-text " data-toggle="modal" data-target="#globalupdateStatusModal">
+							<span uk-icon="pencil"></span>
+							  Cv Status
+							</button>
+						</li>
+						<li> <button type="button" class="uk-button uk-button-text" data-toggle="modal" data-target="#globalmtipupdateStatusModal">
+							<span uk-icon="pencil"></span>
+							  FTM/FTS/MTIP Status
+						</button></li>
+						
+						<li><button type="button" class="uk-button uk-button-text" data-toggle="modal" data-target="#globaltipupdateStatusModal">
+						<span uk-icon="pencil"></span>
+						  FTC/TIP Status
+						</button></li>
+						<li> <button type="button" class="uk-button uk-button-text" data-toggle="modal" data-target="#globaltabupdateStatusModal">
+						<span uk-icon="pencil"></span>
+						  TAB Status
+						</button></li>
+						
+						<li><button type="button" class="uk-button uk-button-text" data-toggle="modal" data-target="#globalamdocsupdateStatusModal">
+						<span uk-icon="pencil"></span>
+						  Amdocs Status
+						</button></li>
+					</ul>
+				</div>
+			</div>
+				
+			
+				
+                 <!-- Button to Open the Modal 
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#globalupdateStatusModal">
+                <span uk-icon="pencil"></span>
+                  CV Status
+                </button>-->
+
+                <!-- The Modal -->
+                <div class="modal" id="globalupdateStatusModal">
+                  <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                    <h4 class="modal-title">Update Cover Status</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                    <div class="alert alert-success alert-dismissible" id="cvAlert">
+                      <a href="#" class="close">&times;</a>
+                      <strong>Success!</strong> Adding Data
+                      </div>
+
+                    <!--<input class="form-control" id="updatedirectoryText" type="text"  placeholder="Directory code" required>-->
+                      <div class="form-group">
+                        <label for="updatedirectoryText">Directory</label>
+                        <select class="form-control" id="globalupdatedirectoryText">
+
+                        </select>
+                      </div>
+                    <!--<input class="form-control" id="updatestatusText" type="text"  placeholder="Status" required>-->
+                    <div class="form-group">
+                      <label for="globalupdatestatusText">Status</label>
+                      <select class="form-control" id="globalupdatestatusText">
+
+                          <option value="n/a">n/a</option>
+						  
+                          <option value="In Progress">In Progress</option>
+						  <option value="Done">Done</option>
+						  <option value="In Proofing">In Proofing</option>
+                         <option value="Done Proofing">Done Proofing</option>
+                          <option value="Emailed">Emailed</option>
+                          <option value="Rework">Rework</option>
+                          <option value="Approved">Approved</option>
+                          <option value="Shipped">Shipped</option>
+                        
+                      </select>
+                    </div>
+
+                    <button class="saveBtn uk-button uk-button-primary" onclick="update_Status_Global()"><span uk-icon="check"></span> Update</button>
+                    </div>
+
+                    <!-- Modal footer -->
+
+                  </div>
+                  </div>
+                </div>
+                <!--update Status end-->
+				
+				
+				 <!-- Updating FTM/FTS/MTIP Status Form -->
+
+                 <!-- Button to Open the Modal 
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#globalmtipupdateStatusModal">
+                <span uk-icon="pencil"></span>
+                  FTM/FTS/MTIP Status
+                </button>-->
+
+                <!-- The Modal -->
+                <div class="modal" id="globalmtipupdateStatusModal">
+                  <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                    <h4 class="modal-title">Update FTM/FTS/MTIP Status</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                    <div class="alert alert-success alert-dismissible" id="cvAlert">
+                      <a href="#" class="close">&times;</a>
+                      <strong>Success!</strong> Adding Data
+                      </div>
+
+                    <!--<input class="form-control" id="updatedirectoryText" type="text"  placeholder="Directory code" required>-->
+                      <div class="form-group">
+                        <label for="globalmtipupdatedirectoryText">Directory</label>
+                        <select class="form-control" id="globalmtipupdatedirectoryText">
+
+                        </select>
+                      </div>
+                    <!--<input class="form-control" id="updatestatusText" type="text"  placeholder="Status" required>-->
+                    <div class="form-group">
+                      <label for="globalmtipupdatestatusText">Status</label>
+                      <select class="form-control" id="globalmtipupdatestatusText">
+
+                          <option value="n/a">n/a</option>
+                          <option value="In Progress">In Progress</option>
+                       <option value="Done">Done</option>
+					   <option value="In Proofing">In Proofing</option>
+                         <option value="Done Proofing">Done Proofing</option>
+                          <option value="Emailed">Emailed</option>
+                          <option value="Rework">Rework</option>
+                          <option value="Approved">Approved</option>
+                          <option value="Shipped">Shipped</option>
+                     
+                      </select>
+                    </div>
+
+                    <button class="saveBtn uk-button uk-button-primary" onclick="update_Mtip_Status_Global()"><span uk-icon="check"></span> Update</button>
+                    </div>
+
+                    <!-- Modal footer -->
+
+                  </div>
+                  </div>
+                </div>
+                <!--update Status end-->
+				
+				
+				 <!-- Updating FTC/TIP Status Form -->
+
+                 <!-- Button to Open the Modal 
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#globaltipupdateStatusModal">
+                <span uk-icon="pencil"></span>
+                  FTC/TIP Status
+                </button>-->
+
+                <!-- The Modal -->
+                <div class="modal" id="globaltipupdateStatusModal">
+                  <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                    <h4 class="modal-title">Update FTC/TIP Status</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                    <div class="alert alert-success alert-dismissible" id="cvAlert">
+                      <a href="#" class="close">&times;</a>
+                      <strong>Success!</strong> Adding Data
+                      </div>
+
+                    <!--<input class="form-control" id="updatedirectoryText" type="text"  placeholder="Directory code" required>-->
+                      <div class="form-group">
+                        <label for="globaltipupdatedirectoryText">Directory</label>
+                        <select class="form-control" id="globaltipupdatedirectoryText">
+
+                        </select>
+                      </div>
+                    <!--<input class="form-control" id="updatestatusText" type="text"  placeholder="Status" required>-->
+                    <div class="form-group">
+                      <label for="globaltipupdatestatusText">Status</label>
+                      <select class="form-control" id="globaltipupdatestatusText">
+
+                          <option value="n/a">n/a</option>
+                          <option value="In Progress">In Progress</option>
+                     <option value="Done">Done</option>
+					 <option value="In Proofing">In Proofing</option>
+                         <option value="Done Proofing">Done Proofing</option>
+                          <option value="Emailed">Emailed</option>
+                          <option value="Rework">Rework</option>
+                          <option value="Approved">Approved</option>
+                          <option value="Shipped">Shipped</option>
+                       
+                      </select>
+                    </div>
+
+                    <button class="saveBtn uk-button uk-button-primary" onclick="update_tip_Status_Global()"><span uk-icon="check"></span> Update</button>
+                    </div>
+
+                    <!-- Modal footer -->
+
+                  </div>
+                  </div>
+                </div>
+                <!--update Status end-->
+				
+				
+				 <!-- Updating TAB Status Form -->
+
+                 <!-- Button to Open the Modal 
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#globaltabupdateStatusModal">
+                <span uk-icon="pencil"></span>
+                  TAB Status
+                </button>-->
+
+                <!-- The Modal -->
+                <div class="modal" id="globaltabupdateStatusModal">
+                  <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                    <h4 class="modal-title">Update TAB Status</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                    <div class="alert alert-success alert-dismissible" id="cvAlert">
+                      <a href="#" class="close">&times;</a>
+                      <strong>Success!</strong> Adding Data
+                      </div>
+
+                    <!--<input class="form-control" id="updatedirectoryText" type="text"  placeholder="Directory code" required>-->
+                      <div class="form-group">
+                        <label for="globaltabupdatedirectoryText">Directory</label>
+                        <select class="form-control" id="globaltabupdatedirectoryText">
+
+                        </select>
+                      </div>
+                    <!--<input class="form-control" id="updatestatusText" type="text"  placeholder="Status" required>-->
+                    <div class="form-group">
+                      <label for="globaltabupdatestatusText">Status</label>
+                      <select class="form-control" id="globaltabupdatestatusText">
+
+                          <option value="n/a">n/a</option>
+                          <option value="In Progress">In Progress</option>
+                       <option value="Done">Done</option>
+					   <option value="In Proofing">In Proofing</option>
+                         <option value="Done Proofing">Done Proofing</option>
+                          <option value="Emailed">Emailed</option>
+                          <option value="Rework">Rework</option>
+                          <option value="Approved">Approved</option>
+                          <option value="Shipped">Shipped</option>
+                  
+                      </select>
+                    </div>
+
+                    <button class="saveBtn uk-button uk-button-primary" onclick="update_tab_Status_Global()"><span uk-icon="check"></span> Update</button>
+                    </div>
+
+                    <!-- Modal footer -->
+
+                  </div>
+                  </div>
+                </div>
+                <!--update Status end-->
+
+				
+				
+				 <!-- Updating Amdocs Status Form -->
+
+                 <!-- Button to Open the Modal 
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#globalamdocsupdateStatusModal">
+                <span uk-icon="pencil"></span>
+                  Amdocs Status
+                </button>-->
+
+                <!-- The Modal -->
+                <div class="modal" id="globalamdocsupdateStatusModal">
+                  <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                    <h4 class="modal-title">Update Amdocs Status</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                    <div class="alert alert-success alert-dismissible" id="cvAlert">
+                      <a href="#" class="close">&times;</a>
+                      <strong>Success!</strong> Adding Data
+                      </div>
+
+                    <!--<input class="form-control" id="updatedirectoryText" type="text"  placeholder="Directory code" required>-->
+                      <div class="form-group">
+                        <label for="globalamdocsupdatedirectoryText">Directory</label>
+                        <select class="form-control" id="globalamdocsupdatedirectoryText">
+
+                        </select>
+                      </div>
+                    <!--<input class="form-control" id="updatestatusText" type="text"  placeholder="Status" required>-->
+                    <div class="form-group">
+                      <label for="globalamdocsupdatestatusText">Status</label>
+                      <select class="form-control" id="globalamdocsupdatestatusText">
+
+                          <option value="n/a">n/a</option>
+                          <option value="Done">Done</option>
+                  
+                      </select>
+                    </div>
+
+                    <button class="saveBtn uk-button uk-button-primary" onclick="update_amdocs_Status_Global()"><span uk-icon="check"></span> Update</button>
+                    </div>
+
+                    <!-- Modal footer -->
+
+                  </div>
+                  </div>
+                </div>
+                <!--update Status end-->
+				
+				
+
+                <!-- Delete data Form -->
+
+                   <!-- Button to Open the Modal -->
+                  <button type="button" class="uk-button uk-button-danger" data-toggle="modal" data-target="#globaldeleteDataModal">
+                  <span uk-icon="trash"></span>
+                    Directory
+                  </button>
+
+                  <!-- The Modal -->
+                  <div class="modal" id="globaldeleteDataModal">
+                    <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+
+                      <!-- Modal Header -->
+                      <div class="modal-header">
+                      <h4 class="modal-title">Delete Data</h4>
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      </div>
+
+                      <!-- Modal body -->
+                      <div class="modal-body">
+                      <div class="alert alert-success alert-dismissible" id="cvAlert">
+                        <a href="#" class="close">&times;</a>
+                        <strong>Success!</strong> Adding Data
+                        </div>
+
+                      <!--<input class="form-control" id="deletedirectoryText" type="text"  placeholder="Directory code" required>-->
+                      <div class="form-group">
+                        <label for="globaldeletedirectoryText">Directory</label>
+                        <select class="form-control" id="globaldeletedirectoryText">
+
+                        </select>
+                      </div>
+
+                    <button class="saveBtn uk-button uk-button-danger" onclick="globalconfirmCvDel()"><span uk-icon="check"></span> Delete</button>
+                      </div>
+
+                      <!-- Modal footer -->
+
+                    </div>
+                    </div>
+                  </div>
+
+
+                        <!-- confirm dialog  modal -->
+                   <div class="modal fade" id="globalConfirmModal" >
+                    <div class="modal-dialog modal-dialog-centered modal-sm " >
+                      <div class="modal-content no-round-border">
+
+                        <div class="modal-body text-center">
+                          <h1 class="display-1"><span class="fa fa-question-circle-o  text-question"></span></h1>
+                          <h3 class="text-secondary">Are you sure?</h3><br>
+                          <button class="uk-button uk-button-danger  no-round-border" id="confirm-delete-btn" onclick="delete_Data_Global()">Delete</button>&nbsp;
+                          <button class="uk-button uk-button-default  no-round-border" id="global-cancel-btn">Cancel</button>
+                        </div>
+                      </div>
+                    </div>
+                   </div>
+
+                <!--filter by status-->
+
+
+
+                   <!-- Button to Open the Modal -->
+                  <button  type="button" class="uk-button uk-button-secondary " data-toggle="modal" data-target="#globalfilterStatusDataModal"><span class="fa fa-filter"> </span> Filter by CV Status :
+                   <span id="globalfilter-type" > </span>
+                  </button>
+
+                  <!-- The Modal -->
+                  <div class="modal" id="globalfilterStatusDataModal">
+                    <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+
+                      <!-- Modal Header -->
+                      <div class="modal-header">
+                      <h4 class="modal-title">Filter Data by Cover Status</h4>
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      </div>
+
+                      <!-- Modal body -->
+                      <div class="modal-body">
+                      <!--<input class="form-control" id="deletedirectoryText" type="text"  placeholder="Directory code" required>-->
+                      <div class="form-group">
+                        <label for="globalfilterStatusText">Status</label>
+                        <select class="form-control" id="globalfilterStatusText">
+                          <option value="All">All</option>
+                          <option value="n/a">n/a</option>
+                          <option value="In Progress">In Progress</option>
+                          <option value="Done">Done</option>
+						  <option value="In Proofing">In Proofing</option>
+                         <option value="Done Proofing">Done Proofing</option>
+                          <option value="Emailed">Emailed</option>
+                          <option value="Rework">Rework</option>
+                          <option value="Approved">Approved</option>
+                          <option value="Shipped">Shipped</option>
+                          
+
+                        </select>
+                      </div>
+
+                    <button class="saveBtn uk-button uk-button-primary" onclick="addFilterGlobal()"><span uk-icon="check"></span> Ok</button>
+                      </div>
+
+                      <!-- Modal footer -->
+
+                    </div>
+                    </div>
+                  </div>
+                <!--filter status end -->
+                <!--Cv delete logs-->
+                
+               
+                <!-- The Modal -->
+                <div class="modal" id="CvLogModal">
+                  <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                    <h4 class="modal-title">Logs History </h4>
+		
+                    <button type="button" class=" close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body modal-scroll">
+
+                      				<div id="cv-logs-div" >
+                      					<table  class="table   table-hover data-container">
+                      						<!--<thead >
+                      							<tr class="">
+                      								<th>Directory Code</th>
+                      								<th>Directory Name</th>
+                      								<th>Remarks</th>
+                      								<th>Status</th>
+                      							</tr>
+                      						</thead>-->
+                      						<tbody id="cv-delete-log-body">
+                      						</tbody>
+                      					</table>
+                      				</div>
+
+                    </div>
+					<div class="modal-footer">
+					 <button class="uk-button uk-button-default uk-button-small float-right" id="CvLogs-Export-btn"><span uk-icon="icon: pull"></span> Export/Backup</button></h4>
+					</div>
+                  </div>
+                </div>
+              </div>
+
+                <div class="cv-container container-fluid" id="global-cv-div">
+                  <table   class="table-container table table-borderless  table-hover  " >
+                    <thead class="bg-dark text-light" >
+                      <tr >
+                        <td>Directory Code</td>
+                        <td>Directory Name</td>
+                        <td>YPPA Code</td>
+						<td>Mtip Due at Printer</td>
+                        <td>Cover Due at Printer</td>
+                        <td>Cover Status</td>
+                        <td>FTM/FTS/MTIP Status</td>
+                        <td>FTC/TIP Status</td>
+                        <td>TAB Status</td>
+                        <td>Amdocs Status</td>
+                        <td colspan="2">Notes</td>
+                        <td >Artist/Proofer</td>
+                        <td > </td>
+                      </tr>
+                    </thead>
+                    <tbody id="global_cv_body">
+                    </tbody>
+                  </table>
+                </div>
+            </div>
+
+            <!--global CG-->
+
+            <div id="global-cg-cont" class="tab-pane  cv-tab fade">
+
+              <h3>Global CIG Tracker</h3><button type="button" class="btn btn-default text-dark bg-light" disabled>
+            Total Count <span class="badge badge-dark " id="globalCgCountText"> </span>
+          </button>
+
+          <button type="button" class="btn btn-warning text-light  " data-toggle="modal" data-target="#globalCgshippingDataModal">
+          <span id="globalcg-shipping-icon" class="fa fa-paper-plane"></span>
+            CIG Shipping <span class="badge badge-light" id="globalCgShipCountText"> </span>
+          </button>
+           <!--shipping-->
+
+          <!-- The Modal -->
+          <div class="modal container-fluid" id="globalCgshippingDataModal" >
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+
+              <!-- Modal Header -->
+              <div class="modal-header">
+              <h4 class="modal-title">CIG Shipping<small id="globalCgdate-indicator"></small></h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+
+              <!-- Modal body -->
+              <div class="modal-body">
+
+              <div >
+                <table  class="table   table-hover data-container">
+                  <thead class="bg-secondary text-light">
+                          <tr >
+                            <td>Directory Code</td>
+                            <td>Directory Name</td>
+                            <td >CIG Status</td>
+                            <td >Nuclear Page Status</td>
+                            <td colspan="3">Transmittal Status</td>
+                          </tr>
+                        </thead>
+                  <tbody id="global_Cgshipping_body">
+                  </tbody>
+                </table>
+              </div>
+
+              </div>
+
+              <!-- Modal footer -->
+              <hr>
+            </div>
+            </div>
+          </div>
+
+           <!-- end-->
+			<button class="uk-button uk-button-default uk-button-small float-right" data-toggle="modal" data-target="#CgLogModal"><span uk-icon="icon: history"></span> Logs</button>
+		  <button class="uk-button uk-button-default uk-button-small float-right" id="Global-Cg-Export-btn"><span uk-icon="icon: pull"></span> Export/Backup</button>
+
+          <hr>
+
+          <!-- Adding Data Form -->
+
+          <!-- Button to Open the Modal -->
+          <button type="button" class="uk-button uk-button-primary" data-toggle="modal" data-target="#globaladdDataCgModal">
+          <span uk-icon="plus-circle"></span>
+             Directory
+          </button>
+
+          <!-- The Modal -->
+          <div class="modal" id="globaladdDataCgModal">
+            <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+              <!-- Modal Header -->
+              <div class="modal-header">
+              <h4 class="modal-title">Add Directory</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+
+              <!-- Modal body -->
+              <div class="modal-body">
+              <div class="alert alert-success alert-dismissible" id="cvAlert">
+                <a href="#" class="close">&times;</a>
+                <strong>Success!</strong> Adding Data
+                </div>
+
+              <input class="form-control" id="globaldirectoryCgText" type="text"  placeholder="Directory code" required>
+              <input class="form-control" id="globaldirectoryNameCgText" type="text"  placeholder="Directory name" required>
+              <input class="form-control" id="globalypCgText" type="text"  placeholder="YPPA Code" required>
+               <div class="form-group">
+                <label for="globaldueCgText">Due at Printer</label>
+                <input class="form-control" id="globaldueCgText" type="date"  placeholder="Due at Printer" required>
+              </div>
+              <!--<input class="form-control" id="remarksCgText" type="text"  placeholder="Remarks" required>-->
+
+              <!--<input class="form-control" id="statusCgText" type="text"  placeholder="Status" required>-->
+              <div class="form-group">
+                <label for="globalstatusCgText">CIG Status</label>
+                <select class="form-control" id="globalstatusCgText">
+                  <option value="n/a">n/a</option>
+				  <option value="In Progress">In Progress</option>
+                  <option value="Done">Done</option>
+				  <option value="In Proofing">In Proofing</option>
+                   <option value="Done Proofing">Done Proofing</option>
+                  <option value="Emailed">Emailed</option>
+                  <option value="Rework">Rework</option>
+                  <option value="Approved">Approved</option>
+                  <option value="Shipped">Shipped</option>
+				  
+                </select>
+              </div>
+			  
+			  <div class="form-group">
+                <label for="globaltransstatusCgText">Transmittal Status</label>
+                <select class="form-control" id="globaltransstatusCgText">
+                  <option value="n/a">n/a</option>
+                  <option value="Done">Done</option>
+                </select>
+              </div>
+			  <div class="form-group">
+                <label for="globalnucstatusCgText">Nuclear Page Status</label>
+                <select class="form-control" id="globalnucstatusCgText">
+                   <option value="n/a">n/a</option>
+				  <option value="In Progress">In Progress</option>
+                  <option value="Done">Done</option>
+				  <option value="In Proofing">In Proofing</option>
+                   <option value="Done Proofing">Done Proofing</option>
+                  <option value="Emailed">Emailed</option>
+                  <option value="Rework">Rework</option>
+                  <option value="Approved">Approved</option>
+                  <option value="Shipped">Shipped</option>
+				  
+                </select>
+              </div>
+			   <div class="form-group">
+                <label for="globalamdstatusCgText">Amdocs Status</label>
+                <select class="form-control" id="globalamdstatusCgText">
+                  <option value="n/a">n/a</option>
+                  <option value="Done">Done</option>
+                </select>
+              </div>
+
+              <button class="saveBtn uk-button uk-button-primary" onclick="save_DataCg_Global()"><span uk-icon="pull"></span> Save</button>
+
+              </div>
+
+              <!-- Modal footer -->
+
+            </div>
+            </div>
+          </div>
+
+           <!--end of add data form -->
+			
+			
+			<!-- Updating notes  Form -->
+
+           <!-- Button to Open the Modal -->
+          <button type="button" class="uk-button uk-button-primary" data-toggle="modal" data-target="#globalnotesupdateStatusModalcg">
+          <span uk-icon="plus-circle"></span>
+             Notes
+          </button>
+
+          <!-- The Modal -->
+          <div class="modal" id="globalnotesupdateStatusModalcg">
+            <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+              <!-- Modal Header -->
+              <div class="modal-header">
+              <h4 class="modal-title">Add/Update Notes</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+
+              <!-- Modal body -->
+              <div class="modal-body">
+              <div class="alert alert-success alert-dismissible" id="cvAlert">
+                <a href="#" class="close">&times;</a>
+                <strong>Success!</strong> Adding Data
+                </div>
+
+              <!--<input class="form-control" id="updatedirectoryTextcg" type="text"  placeholder="Directory code" required>-->
+              <div class="form-group">
+                  <label for="globalnotesupdatedirectoryTextcg">Directory</label>
+                  <select class="form-control" id="globalnotesupdatedirectoryTextcg">
+
+                  </select>
+                </div>
+              <!--<input class="form-control" id="updatestatusTextcg" type="text"  placeholder="Status" required>-->
+              
+			  <textarea class="form-control" id="globalnotesupdatestatusTextcg" placeholder="Type your note here..."></textarea>
+
+              <button class="saveBtn uk-button uk-button-primary" onclick="update_NotesStatusCg_Global()"><span uk-icon="pull"></span> Save</button>
+              </div>
+
+              <!-- Modal footer -->
+
+            </div>
+            </div>
+          </div>
+          <!--update Status end-->
+		  
+		  
+		  
+		  
+				<!-- Assign  Form -->
+
+                 <!-- Button to Open the Modal -->
+                <button type="button" class="uk-button uk-button-primary" data-toggle="modal" data-target="#globalAssignCgupdateStatusModal">
+                <span uk-icon="user"></span>
+                  Assign
+                </button>
+
+               
+				
+                <!-- The Modal -->
+                <div class="modal" id="globalAssignCgupdateStatusModal">
+                  <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                    <h4 class="modal-title">Assign</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                    <div class="alert alert-success alert-dismissible" id="cvAlert">
+                      <a href="#" class="close">&times;</a>
+                      <strong>Success!</strong> Adding Data
+                      </div>
+
+                      <div class="form-group">
+                        <label for="globalAssignCgupdatedirectoryText">Directory</label>
+                        <select class="form-control" id="globalAssignCgupdatedirectoryText">
+
+                        </select>
+                      </div>
+					  
+					  
+                      <div class="form-group">
+                        <label for="globalAssignCgArtistText">Artist</label>
+                        <select class="form-control" id="globalAssignCgArtistText">
+
+                        </select>
+                      </div>
+					  
+					  <div class="form-group">
+                        <label for="globalAssignCgProoferText">Proofer</label>
+                        <select class="form-control" id="globalAssignCgProoferText">
+
+                        </select>
+                      </div>
+					  
+					  
+					  
+                  
+
+                    <button class="saveBtn uk-button uk-button-primary" onclick="AssignCg_Global()"><span uk-icon="pull"></span> Save</button>
+                    </div>
+
+                    <!-- Modal footer -->
+
+                  </div>
+                  </div>
+                </div>
+                <!--update Status end-->
+		  
+
+				
+		<div class="uk-inline">
+			<button class="uk-button uk-button-default" type="button"><span uk-icon="file-edit"></span> Status</button>
+			<div uk-dropdown>
+				<ul class="uk-nav uk-dropdown-nav">
+				<li class="uk-nav-header uk-text-success">Update Status</li>
+				<li class="uk-nav-divider"></li>
+					<li ><button type="button" class="uk-button uk-button-text" data-toggle="modal" data-target="#globalupdateStatusModalcg">
+					  <span uk-icon="pencil"></span>
+						 CIG Status
+					  </button></li>
+					<li> <button type="button" class="uk-button uk-button-text" data-toggle="modal" data-target="#globalupdatenucStatusModalcg">
+					  <span uk-icon="pencil"></span>
+						 Nuclear Page Status
+					  </button></li>
+					
+					<li> <button type="button" class="uk-button uk-button-text" data-toggle="modal" data-target="#globalupdatetransStatusModalcg">
+					  <span uk-icon="pencil"></span>
+						 Transmittal Status
+					  </button></li>
+					<li><button type="button" class="uk-button uk-button-text" data-toggle="modal" data-target="#globalupdateamdStatusModalcg">
+					  <span uk-icon="pencil"></span>
+						 Amdocs Status
+					  </button></li>
+					
+				
+				</ul>
+			</div>
+		</div>
+			
+			
+           <!-- Updating Status Form -->
+
+           <!-- Button to Open the Modal 
+          <button type="button" class="btn btn-success" data-toggle="modal" data-target="#globalupdateStatusModalcg">
+          <span uk-icon="pencil"></span>
+             CIG Status
+          </button>-->
+
+          <!-- The Modal -->
+          <div class="modal" id="globalupdateStatusModalcg">
+            <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+              <!-- Modal Header -->
+              <div class="modal-header">
+              <h4 class="modal-title">Update Status</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+
+              <!-- Modal body -->
+              <div class="modal-body">
+              <div class="alert alert-success alert-dismissible" id="cvAlert">
+                <a href="#" class="close">&times;</a>
+                <strong>Success!</strong> Adding Data
+                </div>
+
+              <!--<input class="form-control" id="updatedirectoryTextcg" type="text"  placeholder="Directory code" required>-->
+              <div class="form-group">
+                  <label for="globalupdatedirectoryTextcg">Directory</label>
+                  <select class="form-control" id="globalupdatedirectoryTextcg">
+
+                  </select>
+                </div>
+              <!--<input class="form-control" id="updatestatusTextcg" type="text"  placeholder="Status" required>-->
+              <div class="form-group">
+                <label for="globalupdatestatusTextcg">Status</label>
+                <select class="form-control" id="globalupdatestatusTextcg">
+                   <option value="n/a">n/a</option>
+				  <option value="In Progress">In Progress</option>
+                  <option value="Done">Done</option>
+				  <option value="In Proofing">In Proofing</option>
+                   <option value="Done Proofing">Done Proofing</option>
+                  <option value="Emailed">Emailed</option>
+                  <option value="Rework">Rework</option>
+                  <option value="Approved">Approved</option>
+                  <option value="Shipped">Shipped</option>
+
+                </select>
+              </div>
+
+              <button class="saveBtn uk-button uk-button-primary" onclick="update_StatusCg_Global()"><span uk-icon="check"></span> Update</button>
+              </div>
+
+              <!-- Modal footer -->
+
+            </div>
+            </div>
+          </div>
+          <!--update Status end-->
+		  
+		  <!-- Updating nuclear Status Form -->
+
+           <!-- Button to Open the Modal 
+          <button type="button" class="btn btn-success" data-toggle="modal" data-target="#globalupdatenucStatusModalcg">
+          <span uk-icon="pencil"></span>
+             Nuclear Page Status
+          </button>-->
+
+          <!-- The Modal -->
+          <div class="modal" id="globalupdatenucStatusModalcg">
+            <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+              <!-- Modal Header -->
+              <div class="modal-header">
+              <h4 class="modal-title">Update Nuclear Page Status</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+
+              <!-- Modal body -->
+              <div class="modal-body">
+              <div class="alert alert-success alert-dismissible" id="cvAlert">
+                <a href="#" class="close">&times;</a>
+                <strong>Success!</strong> Adding Data
+                </div>
+
+              <!--<input class="form-control" id="updatedirectoryTextcg" type="text"  placeholder="Directory code" required>-->
+              <div class="form-group">
+                  <label for="globalupdatenucdirectoryTextcg">Directory</label>
+                  <select class="form-control" id="globalupdatenucdirectoryTextcg">
+
+                  </select>
+                </div>
+              <!--<input class="form-control" id="updatestatusTextcg" type="text"  placeholder="Status" required>-->
+              <div class="form-group">
+                <label for="globalupdatenucstatusTextcg">Status</label>
+                <select class="form-control" id="globalupdatenucstatusTextcg">
+                    <option value="n/a">n/a</option>
+				  <option value="In Progress">In Progress</option>
+                  <option value="Done">Done</option>
+				  <option value="In Proofing">In Proofing</option>
+                   <option value="Done Proofing">Done Proofing</option>
+                  <option value="Emailed">Emailed</option>
+                  <option value="Rework">Rework</option>
+                  <option value="Approved">Approved</option>
+                  <option value="Shipped">Shipped</option>
+					  
+
+                </select>
+              </div>
+
+              <button class="saveBtn uk-button uk-button-primary" onclick="update_NucStatusCg_Global()"><span uk-icon="check"></span> Update</button>
+              </div>
+
+              <!-- Modal footer -->
+
+            </div>
+            </div>
+          </div>
+          <!--update Status end-->
+		  
+		  
+		    <!-- Updating transmittal Status Form -->
+
+           <!-- Button to Open the Modal 
+          <button type="button" class="btn btn-success" data-toggle="modal" data-target="#globalupdatetransStatusModalcg">
+          <span uk-icon="pencil"></span>
+             Transmittal Status
+          </button>-->
+
+          <!-- The Modal -->
+          <div class="modal" id="globalupdatetransStatusModalcg">
+            <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+              <!-- Modal Header -->
+              <div class="modal-header">
+              <h4 class="modal-title">Update Transmittal Status</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+
+              <!-- Modal body -->
+              <div class="modal-body">
+              <div class="alert alert-success alert-dismissible" id="cvAlert">
+                <a href="#" class="close">&times;</a>
+                <strong>Success!</strong> Adding Data
+                </div>
+
+              <!--<input class="form-control" id="updatedirectoryTextcg" type="text"  placeholder="Directory code" required>-->
+              <div class="form-group">
+                  <label for="globalupdatetransdirectoryTextcg">Directory</label>
+                  <select class="form-control" id="globalupdatetransdirectoryTextcg">
+
+                  </select>
+                </div>
+              <!--<input class="form-control" id="updatestatusTextcg" type="text"  placeholder="Status" required>-->
+              <div class="form-group">
+                <label for="globalupdatetransstatusTextcg">Status</label>
+                <select class="form-control" id="globalupdatetransstatusTextcg">
+                    <option value="n/a">n/a</option>
+                    <option value="Done">Done</option>
+					  
+
+                </select>
+              </div>
+
+              <button class="saveBtn uk-button uk-button-primary" onclick="update_TransStatusCg_Global()"><span uk-icon="check"></span> Update</button>
+              </div>
+
+              <!-- Modal footer -->
+
+            </div>
+            </div>
+          </div>
+          <!--update Status end-->
+		  
+		  
+		   
+		  
+		  
+		   <!-- Updating amdocs Status Form -->
+
+           <!-- Button to Open the Modal 
+          <button type="button" class="btn btn-success" data-toggle="modal" data-target="#globalupdateamdStatusModalcg">
+          <span uk-icon="pencil"></span>
+             Amdocs Status
+          </button>-->
+
+          <!-- The Modal -->
+          <div class="modal" id="globalupdateamdStatusModalcg">
+            <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+              <!-- Modal Header -->
+              <div class="modal-header">
+              <h4 class="modal-title">Update Amdocs Status</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+
+              <!-- Modal body -->
+              <div class="modal-body">
+              <div class="alert alert-success alert-dismissible" id="cvAlert">
+                <a href="#" class="close">&times;</a>
+                <strong>Success!</strong> Adding Data
+                </div>
+
+              <!--<input class="form-control" id="updatedirectoryTextcg" type="text"  placeholder="Directory code" required>-->
+              <div class="form-group">
+                  <label for="globalupdateamddirectoryTextcg">Directory</label>
+                  <select class="form-control" id="globalupdateamddirectoryTextcg">
+
+                  </select>
+                </div>
+              <!--<input class="form-control" id="updatestatusTextcg" type="text"  placeholder="Status" required>-->
+              <div class="form-group">
+                <label for="globalupdateamdstatusTextcg">Status</label>
+                <select class="form-control" id="globalupdateamdstatusTextcg">
+                    <option value="n/a">n/a</option>
+                    <option value="Done">Done</option>
+					  
+
+                </select>
+              </div>
+
+              <button class="saveBtn uk-button uk-button-primary" onclick="update_AmdStatusCg_Global()"><span uk-icon="check"></span> Update</button>
+              </div>
+
+              <!-- Modal footer -->
+
+            </div>
+            </div>
+          </div>
+          <!--update Status end-->
+
+
+          <!-- Delete data Form -->
+
+             <!-- Button to Open the Modal -->
+            <button type="button" class="uk-button uk-button-danger" data-toggle="modal" data-target="#globaldeleteDataModalcg">
+            <span uk-icon="trash"></span>
+               Directory
+            </button>
+
+            <!-- The Modal -->
+            <div class="modal" id="globaldeleteDataModalcg">
+              <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                <h4 class="modal-title">Delete Data</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                <div class="alert alert-success alert-dismissible" id="cvAlert">
+                  <a href="#" class="close">&times;</a>
+                  <strong>Success!</strong> Adding Data
+                  </div>
+
+                <!--<input class="form-control" id="deletedirectoryTextcg" type="text"  placeholder="Directory code" required>-->
+                <div class="form-group">
+                  <label for="globaldeletedirectoryTextcg">Directory</label>
+                  <select class="form-control" id="globaldeletedirectoryTextcg">
+
+                  </select>
+                </div>
+
+
+              <button class="saveBtn uk-button uk-button-danger" onclick="confirmCgDel_Global()"><span uk-icon="check"></span> Delete</button>
+                </div>
+
+                <!-- Modal footer -->
+
+              </div>
+              </div>
+            </div>
+
+
+            <!-- confirm dialog  modal -->
+             <div class="modal fade" id="globalConfirmCgModal" >
+              <div class="modal-dialog modal-dialog-centered modal-sm " >
+                <div class="modal-content no-round-border">
+
+                  <div class="modal-body text-center">
+                    <h1 class="display-1"><span class="fa fa-question-circle-o text-question"></span></h1>
+                    <h3 class="text-secondary">Are you sure?</h3><br>
+                    <button class="uk-button uk-button-danger  no-round-border" id="confirm-delete-btn" onclick="delete_DataCg_Global()">Delete</button>&nbsp;
+                    <button class="uk-button uk-button-default  no-round-border" id="global-cancel-cg-btn">Cancel</button>
+                  </div>
+                </div>
+              </div>
+             </div>
+
+
+
+
+
+          <!--filter by status-->
+
+
+
+             <!-- Button to Open the Modal -->
+           <!-- <button  type="button" class="uk-button uk-button-secondary data-toggle="modal" data-target="#"><span class="fa fa-filter"></span> Filter by CIG Status :
+             <span id="globalcg-filter-type" > </span>
+            </button>-->
+			
+			 <button type="button" class="uk-button uk-button-secondary" data-toggle="modal" data-target="#globalcgfilterStatusDataModal"><span class="fa fa-filter"></span>
+            Filter by CIG Status : <span id="globalcg-filter-type" > </span>
+            </button>
+
+            <!-- The Modal -->
+            <div class="modal" id="globalcgfilterStatusDataModal">
+              <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                <h4 class="modal-title">Filter Data</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                <!--<input class="form-control" id="deletedirectoryText" type="text"  placeholder="Directory code" required>-->
+                <div class="form-group">
+                  <label for="globalcgfilterStatusText">Status</label>
+                  <select class="form-control" id="globalcgfilterStatusText">
+                     <option value="All">All</option>
+                     <option value="n/a">n/a</option>
+					  <option value="In Progress">In Progress</option>
+					  <option value="Done">Done</option>
+					  <option value="Emailed">Emailed</option>
+					  <option value="Rework">Rework</option>
+					  <option value="Approved">Approved</option>
+					  <option value="Shipped">Shipped</option>
+					  <option value="Amdocs done">Amdocs Done</option>
+
+                  </select>
+                </div>
+
+              <button class="saveBtn uk-button uk-button-primary" onclick="cgaddFilterGlobal()"><span uk-icon="check"></span> Ok</button>
+                </div>
+
+                <!-- Modal footer -->
+
+              </div>
+              </div>
+            </div>
+          <!--filter status end -->
+		  
+          <!--Cg delete logs-->
+          
+          <!-- The Modal -->
+          <div class="modal" id="CgLogModal">
+            <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+              <!-- Modal Header -->
+              <div class="modal-header">
+              <h4 class="modal-title">Logs History </h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+
+              <!-- Modal body -->
+              <div class="modal-body modal-scroll">
+
+                        <div id="cg-logs-div">
+                          <table  class="table   table-hover data-container">
+                            <!--<thead >
+                              <tr class="">
+                                <th>Directory Code</th>
+                                <th>Directory Name</th>
+                                <th>Remarks</th>
+                                <th>Status</th>
+                              </tr>
+                            </thead>-->
+                            <tbody id="cg-delete-log-body">
+                            </tbody>
+                          </table>
+                        </div>
+			
+              </div>
+			  <div class="modal-footer">
+					 <button class="uk-button uk-button-default uk-button-small float-right" id="CgLogs-Export-btn"><span uk-icon="icon: pull"></span> Export/Backup</button></h4>
+					</div>
+            </div>
+          </div>
+        </div>
+
+
+           <div class="cv-container container-fluid" onload="getGlobalCgData()">
+            <table   class="table-container table table-borderless  table-hover " id="global-cg-div">
+              <thead class="bg-dark text-light">
+                <tr >
+                  <td>Directory Code</td>
+                  <td>Directory Name</td>
+                  <td>YPPA Code</td>
+                  <td>Due at Printer</td>
+                  <td >CIG Status</td>
+                  <td >Nuclear Page Status</td>
+				  <td >Transmittal Status</td>
+                  <td >Amdocs Status</td>
+                  <td colspan="2">Notes</td>
+                  <td colspan="2">Artist/Proofer</td>
+                </tr>
+
+              </thead>
+              <tbody id="global_cg_body">
+              </tbody>
+            </table>
+          </div>
+		  
+		  
+
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+
+
+  <!--end global-->
+
+  <!-- CV -->
+
+   <div id="cv-cont" class="tab-pane container cv-tab fade" style="width:100%;">
+		 <h1>CV Tracker</h1>
+		 <button type="button" class="btn btn-default text-dark bg-light" disabled>
+		  Total Count <span class="badge badge-dark " id="CvCountText"> </span>
+		 </button>
+		 <button type="button" class="btn btn-warning text-light" data-toggle="modal" data-target="#shippingDataModal">
+		 <span id="cv-shipping-icon" class="fa fa-paper-plane "></span>
+		  Shipping <span class="badge badge-light " id="CvShipCountText"> </span>
+		 </button>
+		 <!--shipping-->
+
+		<!-- The Modal -->
+		<div class="modal container-fluid" id="shippingDataModal" >
+		  <div class="modal-dialog modal-dialog-centered modal-lg">
+			<div class="modal-content ">
+
+			  <!-- Modal Header -->
+			  <div class="modal-header" >
+				<h4 class="modal-title">Shipping<small id="date-indicator"></small></h4>
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+			  </div>
+
+			  <!-- Modal body -->
+			  <div class="modal-body">
+
+				<div >
+					<table  class="table   table-hover data-container">
+						<!--<thead >
+							<tr class="">
+								<th>Directory Code</th>
+								<th>Directory Name</th>
+								<th>Remarks</th>
+								<th>Status</th>
+							</tr>
+						</thead>-->
+						<tbody id="shipping_body">
+						</tbody>
+					</table>
+				</div>
+
+			  </div>
+
+			  <!-- Modal footer -->
+				<hr>
+			</div>
+		  </div>
+		</div>
+		<button class="uk-button uk-button-default uk-button-small float-right" id="Cv-Export-btn"><span uk-icon="icon: pull"></span> Export/Backup</button>
+		 <!-- end-->
+		<hr>
+
+		<!-- Adding Data Form -->
+
+		<!-- Button to Open the Modal -->
+		<button type="button" class="uk-button uk-button-primary" data-toggle="modal" data-target="#addDataModal">
+		<span uk-icon="plus-circle"></span>
+		   Directory
+		</button>
+
+		<!-- The Modal -->
+		<div class="modal" id="addDataModal">
+		  <div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+
+			  <!-- Modal Header -->
+			  <div class="modal-header">
+				<h4 class="modal-title" >Add Directory</h4>
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+			  </div>
+
+			  <!-- Modal body -->
+			  <div class="modal-body">
+
+				<input class="form-control" id="directoryText" type="text"  placeholder="Directory code" required>
+				<input class="form-control" id="directoryNameText" type="text"  placeholder="Directory name" required>
+				<input class="form-control" id="ypText" type="text"  placeholder="YPPA Code" required>
+				<div class="form-group">
+					<label for="dueText">Due at Printer</label>
+					<input class="form-control" id="dueText" type="date"  placeholder="Due at Printer" required>
+				</div>
+				<!--<input class="form-control" id="remarksText" type="text"  placeholder="Remarks" required>-->
+
+				<input class="form-control" id="remarksText" type="text"  placeholder="Remarks" required>
+
+				<!--<input class="form-control" id="statusText" type="text"  placeholder="Status" required>-->
+				<div class="form-group">
+					<label for="statusText">Status</label>
+					<select class="form-control" id="statusText">
+						<option value="n/a">n/a</option>
+						<option value="Emailed">Emailed</option>
+						<option value="Rework">Rework</option>
+						<option value="Approved">Approved</option>
+						<option value="Shipped">Shipped</option>
+					</select>
+				</div>
+
+				<button class="saveBtn uk-button uk-button-primary" onclick="save_Data()"><span uk-icon="pull"></span> Save</button>
+
+			  </div>
+
+			  <!-- Modal footer -->
+
+			</div>
+		  </div>
+		</div>
+
+		 <!--end of add data form -->
+
+		 <div class="uk-inline">
+			<button class="uk-button uk-button-default" type="button"><span uk-icon="file-edit"></span> Update</button>
+			<div uk-dropdown>
+				<ul class="uk-nav uk-dropdown-nav">
+					<li class="uk-nav-header uk-text-success">Update</li>
+					<li class="uk-nav-divider"></li>
+					<li><button type="button" class="uk-button uk-button-text" data-toggle="modal" data-target="#updateRemarksModal">
+						<span uk-icon="pencil"></span>
+						  Remarks
+						</button></li>
+					<li><button type="button" class="uk-button uk-button-text" data-toggle="modal" data-target="#updateStatusModal">
+						<span uk-icon="pencil"></span>
+						  Status
+						</button></li>
+					
+				</ul>
+			</div>
+		</div>
+		 
+		 
+		 
+	   <!-- Updating remarks Form -->
+
+		 <!-- Button to Open the Modal -->
+		
+
+		<!-- The Modal -->
+		<div class="modal" id="updateRemarksModal">
+		  <div class="modal-dialog modal-dialog-centered">
+		  <div class="modal-content">
+
+			<!-- Modal Header -->
+			<div class="modal-header">
+			<h4 class="modal-title">Update Remarks</h4>
+			<button type="button" class="close" data-dismiss="modal">&times;</button>
+			</div>
+
+			<!-- Modal body -->
+			<div class="modal-body">
+
+
+			<!--<input class="form-control" id="updateRemarksdirectoryText" type="text"  placeholder="Directory code" required>-->
+					<div class="form-group">
+						<label for="updateRemarksdirectoryText">Directory</label>
+						<select class="form-control" id="updateRemarksdirectoryText">
+
+						</select>
+					</div>
+		   <!--<input class="form-control" id="updateremarksText" type="text"  placeholder="Remarks" required>-->
+		   <input class="form-control" id="updateremarksText" type="text"  placeholder="Remarks" required>
+
+			<button class="saveBtn uk-button uk-button-primary" onclick="update_Remarks()"><span uk-icon="check"></span> Update</button>
+			</div>
+
+			<!-- Modal footer -->
+
+		  </div>
+		  </div>
+		</div>
+		<!--update remarks end-->
+
+	   <!-- Updating Status Form -->
+
+		 <!-- Button to Open the Modal -->
+		
+
+		<!-- The Modal -->
+		<div class="modal" id="updateStatusModal">
+		  <div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+
+			  <!-- Modal Header -->
+			  <div class="modal-header">
+				<h4 class="modal-title">Update Status</h4>
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+			  </div>
+
+			  <!-- Modal body -->
+			  <div class="modal-body">
+				<div class="alert alert-success alert-dismissible" id="cvAlert">
+					<a href="#" class="close">&times;</a>
+					<strong>Success!</strong> Adding Data
+				  </div>
+
+				<!--<input class="form-control" id="updatedirectoryText" type="text"  placeholder="Directory code" required>-->
+					<div class="form-group">
+						<label for="updatedirectoryText">Directory</label>
+						<select class="form-control" id="updatedirectoryText">
+
+						</select>
+					</div>
+				<!--<input class="form-control" id="updatestatusText" type="text"  placeholder="Status" required>-->
+				<div class="form-group">
+					<label for="updatestatusText">Status</label>
+					<select class="form-control" id="updatestatusText">
+						<option value="n/a">n/a</option>
+						<option value="Emailed">Emailed</option>
+						<option value="Rework">Rework</option>
+						<option value="Approved">Approved</option>
+						<option value="Shipped">Shipped</option>
+					</select>
+				</div>
+
+				<button class="saveBtn uk-button uk-button-primary" onclick="update_Status()"><span uk-icon="check"></span> Update</button>
+			  </div>
+
+			  <!-- Modal footer -->
+
+			</div>
+		  </div>
+		</div>
+		<!--update Status end-->
+
+
+
+		<!-- Delete data Form -->
+
+			 <!-- Button to Open the Modal -->
+			<button type="button" class="uk-button uk-button-danger" data-toggle="modal" data-target="#deleteDataModal">
+			<span uk-icon="trash"></span>
+			  Directory
+			</button>
+
+			<!-- The Modal -->
+			<div class="modal" id="deleteDataModal">
+			  <div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+
+				  <!-- Modal Header -->
+				  <div class="modal-header">
+					<h4 class="modal-title">Delete Data</h4>
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				  </div>
+
+				  <!-- Modal body -->
+				  <div class="modal-body">
+					<div class="alert alert-success alert-dismissible" id="cvAlert">
+						<a href="#" class="close">&times;</a>
+						<strong>Success!</strong> Adding Data
+					  </div>
+
+					<!--<input class="form-control" id="deletedirectoryText" type="text"  placeholder="Directory code" required>-->
+					<div class="form-group">
+						<label for="deletedirectoryText">Directory</label>
+						<select class="form-control" id="deletedirectoryText">
+
+						</select>
+					</div>
+
+			  <button class="uk-button uk-button-danger" onclick="confirmCvDel()"><span uk-icon="check"></span> Delete</button>
+				  </div>
+
+				  <!-- Modal footer -->
+
+				</div>
+			  </div>
+			</div>
+
+
+						<!-- confirm dialog  modal -->
+			 <div class="modal fade" id="ConfirmModal" >
+				<div class="modal-dialog modal-dialog-centered modal-sm " >
+					<div class="modal-content no-round-border">
+
+						<div class="modal-body text-center">
+							<h1 class="display-1"><span class="fa fa-question-circle-o  text-question"></span></h1>
+							<h3 class="text-secondary">Are you sure?</h3><br>
+							<button class="uk-button uk-button-danger  no-round-border" id="confirm-delete-btn" onclick="delete_Data()">Delete</button>&nbsp;
+							<button class="uk-button uk-button-default  no-round-border" id="cancel-btn">Cancel</button>
+						</div>
+					</div>
+				</div>
+			 </div>
+
+		<!--filter by status-->
+
+
+
+			 <!-- Button to Open the Modal -->
+			<button  type="button" class="uk-button uk-button-secondary" data-toggle="modal" data-target="#filterStatusDataModal"><span class="fa fa-filter"> </span> Filter by Status :
+			 <span id="filter-type" > </span>
+			</button>
+
+			<!-- The Modal -->
+			<div class="modal" id="filterStatusDataModal">
+			  <div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+
+				  <!-- Modal Header -->
+				  <div class="modal-header">
+					<h4 class="modal-title">Filter Data</h4>
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				  </div>
+
+				  <!-- Modal body -->
+				  <div class="modal-body">
+					<!--<input class="form-control" id="deletedirectoryText" type="text"  placeholder="Directory code" required>-->
+					<div class="form-group">
+						<label for="filterStatusText">Status</label>
+						<select class="form-control" id="filterStatusText">
+							<option value="All">All</option>
+							<option value="n/a">n/a</option>
+							<option value="Emailed">Emailed</option>
+							<option value="Rework">Rework</option>
+							<option value="Approved">Approved</option>
+							<option value="Shipped">Shipped</option>
+						</select>
+					</div>
+
+			  <button class="saveBtn uk-button uk-button-primary" onclick="addFilter()"><span uk-icon="check"></span> Ok</button>
+				  </div>
+
+				  <!-- Modal footer -->
+
+				</div>
+			  </div>
+			</div>
+		<!--filter status end -->
+		
+		
+
+
+
+		<div class="cv-container container-fluid">
+			<table   class="table table-borderless  table-hover " id="cv_body_div">
+				<thead class="bg-dark text-light">
+					<tr >
+						<td>Date</td>
+						<td>Directory Code</td>
+						<td>Directory Name</td>
+						<td>YPPA Code</td>
+						<td>Due at Printer</td>
+						<td colspan="2">Remarks</td>
+						<td>Status</td>
+					</tr>
+				</thead>
+				<tbody id="cv_body">
+				</tbody>
+			</table>
+		</div>
+
+
+</div>
+
+    <!-- CG ----------------------------------------------------------------------->
+
+  <div id="cg-cont" class="tab-pane container fade cg-tab">
+
+	     <h1>CIG Tracker</h1><button type="button" class="btn btn-default text-dark bg-light" disabled>
+		  Total Count <span class="badge badge-dark " id="CgCountText"> </span>
+		</button>
+
+		<button type="button" class="btn btn-warning text-light  " data-toggle="modal" data-target="#CgshippingDataModal">
+		<span id="cg-shipping-icon" class="fa fa-paper-plane"></span>
+		  Shipping <span class="badge badge-light" id="CgShipCountText"> </span>
+		</button>
+		 <!--shipping-->
+
+		<!-- The Modal -->
+		<div class="modal container-fluid" id="CgshippingDataModal" >
+		  <div class="modal-dialog modal-dialog-centered modal-lg">
+			<div class="modal-content">
+
+			  <!-- Modal Header -->
+			  <div class="modal-header">
+				<h4 class="modal-title">Shipping<small id="Cgdate-indicator"></small></h4>
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+			  </div>
+
+			  <!-- Modal body -->
+			  <div class="modal-body">
+
+				<div >
+					<table  class="table   table-hover data-container">
+						<!--<thead >
+							<tr class="">
+								<th>Directory Code</th>
+								<th>Directory Name</th>
+								<th>Remarks</th>
+								<th>Status</th>
+							</tr>
+						</thead>-->
+						<tbody id="Cgshipping_body">
+						</tbody>
+					</table>
+				</div>
+
+			  </div>
+
+			  <!-- Modal footer -->
+				<hr>
+			</div>
+		  </div>
+		</div>
+
+		 <!-- end-->
+		<button class="uk-button uk-button-default uk-button-small float-right" id="Cg-Export-btn"><span uk-icon="icon: pull"></span> Export/Backup</button>
+
+		<hr>
+
+		<!-- Adding Data Form -->
+
+		<!-- Button to Open the Modal -->
+		<button type="button" class="uk-button uk-button-primary" data-toggle="modal" data-target="#addDataCgModal">
+		<span uk-icon="plus-circle"></span>
+		   Directory
+		</button>
+
+		<!-- The Modal -->
+		<div class="modal" id="addDataCgModal">
+		  <div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+
+			  <!-- Modal Header -->
+			  <div class="modal-header">
+				<h4 class="modal-title">Add Directory</h4>
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+			  </div>
+
+			  <!-- Modal body -->
+			  <div class="modal-body">
+				<div class="alert alert-success alert-dismissible" id="cvAlert">
+					<a href="#" class="close">&times;</a>
+					<strong>Success!</strong> Adding Data
+				  </div>
+
+				<input class="form-control" id="directoryCgText" type="text"  placeholder="Directory code" required>
+				<input class="form-control" id="directoryNameCgText" type="text"  placeholder="Directory name" required>
+				<input class="form-control" id="ypCgText" type="text"  placeholder="YPPA Code" required>
+				<div class="form-group">
+					<label for="dueCgText">Due at Printer</label>
+					<input class="form-control" id="dueCgText" type="date"  placeholder="Due at Printer" required>
+				</div>
+				<!--<input class="form-control" id="remarksCgText" type="text"  placeholder="Remarks" required>-->
+				
+					
+					<input type="text" class="form-control" id="remarksCgText" placeholder="Remarks" required>
+						
+					
+				
+				<!--<input class="form-control" id="statusCgText" type="text"  placeholder="Status" required>-->
+				<div class="form-group">
+					<label for="statusCgText">Status</label>
+					<select class="form-control" id="statusCgText">
+						<option value="n/a">n/a</option>
+						<option value="Done">Done</option>
+						<option value="Emailed">Emailed</option>
+						<option value="Rework">Rework</option>
+						<option value="Approved">Approved</option>
+						<option value="Shipped">Shipped</option>
+					</select>
+				</div>
+
+				<button class="saveBtn uk-button uk-button-primary" onclick="save_DataCg()"><span uk-icon="pull"></span> Save</button>
+
+			  </div>
+
+			  <!-- Modal footer -->
+
+			</div>
+		  </div>
+		</div>
+
+		 <!--end of add data form -->
+
+		 
+		<div class="uk-inline">
+			<button class="uk-button uk-button-default" type="button"><span uk-icon="file-edit"></span> Update</button>
+			<div uk-dropdown>
+				<ul class="uk-nav uk-dropdown-nav">
+					<li class="uk-nav-header uk-text-success">Update</li>
+					<li class="uk-nav-divider"></li>
+					<li><button type="button" class="uk-button uk-button-text" data-toggle="modal" data-target="#updateRemarksCgModal">
+						<span uk-icon="pencil"></span>
+						   Remarks
+						</button></li>
+					<li><button type="button" class="uk-button uk-button-text" data-toggle="modal" data-target="#updateStatusModalcg">
+						<span uk-icon="pencil"></span>
+						   Status
+						</button></li>
+				</ul>
+			</div>
+		</div>
+		 
+		 
+		 
+		 
+	   <!-- Updating remarks Form -->
+
+		 <!-- Button to Open the Modal -->
+		
+
+		<!-- The Modal -->
+		<div class="modal" id="updateRemarksCgModal">
+		  <div class="modal-dialog modal-dialog-centered">
+		  <div class="modal-content">
+
+			<!-- Modal Header -->
+			<div class="modal-header">
+			<h4 class="modal-title">Update Remarks</h4>
+			<button type="button" class="close" data-dismiss="modal">&times;</button>
+			</div>
+
+			<!-- Modal body -->
+			<div class="modal-body">
+			<div class="alert alert-success alert-dismissible" id="cvAlert">
+			  <a href="#" class="close">&times;</a>
+			  <strong>Success!</strong> Adding Data
+			  </div>
+
+			<!--<input class="form-control" id="updateRemarksdirectoryTextcg" type="text"  placeholder="Directory code" required>-->
+			<div class="form-group">
+						<label for="updateRemarksdirectoryTextcg">Directory</label>
+						<select class="form-control" id="updateRemarksdirectoryTextcg">
+
+						</select>
+					</div>
+		   <!--<input class="form-control" id="updateremarksTextcg" type="text"  placeholder="Remarks" required>-->
+		   
+					
+					<input type="text" class="form-control" id="updateremarksTextcg" placeholder="Remarks" required>
+					
+					
+			
+
+			<button class="saveBtn uk-button uk-button-primary" onclick="update_RemarksCg()"><span uk-icon="check"></span> Update</button>
+			</div>
+
+			<!-- Modal footer -->
+
+		  </div>
+		  </div>
+		</div>
+		<!--update remarks end-->
+
+	   <!-- Updating Status Form -->
+
+		 <!-- Button to Open the Modal -->
+		
+
+		<!-- The Modal -->
+		<div class="modal" id="updateStatusModalcg">
+		  <div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+
+			  <!-- Modal Header -->
+			  <div class="modal-header">
+				<h4 class="modal-title">Update Status</h4>
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+			  </div>
+
+			  <!-- Modal body -->
+			  <div class="modal-body">
+				<div class="alert alert-success alert-dismissible" id="cvAlert">
+					<a href="#" class="close">&times;</a>
+					<strong>Success!</strong> Adding Data
+				  </div>
+
+				<!--<input class="form-control" id="updatedirectoryTextcg" type="text"  placeholder="Directory code" required>-->
+				<div class="form-group">
+						<label for="updatedirectoryTextcg">Directory</label>
+						<select class="form-control" id="updatedirectoryTextcg">
+
+						</select>
+					</div>
+				<!--<input class="form-control" id="updatestatusTextcg" type="text"  placeholder="Status" required>-->
+				<div class="form-group">
+					<label for="updatestatusTextcg">Status</label>
+					<select class="form-control" id="updatestatusTextcg">
+							<option value="n/a">n/a</option>
+							<option value="Done">Done</option>
+							<option value="Emailed">Emailed</option>
+							<option value="Rework">Rework</option>
+							<option value="Approved">Approved</option>
+							<option value="Shipped">Shipped</option>
+
+					</select>
+				</div>
+
+				<button class="saveBtn uk-button uk-button-primary" onclick="update_StatusCg()"><span uk-icon="check"></span> Update</button>
+			  </div>
+
+			  <!-- Modal footer -->
+
+			</div>
+		  </div>
+		</div>
+		<!--update Status end-->
+
+
+		<!-- Delete data Form -->
+
+			 <!-- Button to Open the Modal -->
+			<button type="button" class="uk-button uk-button-danger" data-toggle="modal" data-target="#deleteDataModalcg">
+			<span uk-icon="trash"></span>
+			   Directory
+			</button>
+
+			<!-- The Modal -->
+			<div class="modal" id="deleteDataModalcg">
+			  <div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+
+				  <!-- Modal Header -->
+				  <div class="modal-header">
+					<h4 class="modal-title">Delete Data</h4>
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				  </div>
+
+				  <!-- Modal body -->
+				  <div class="modal-body">
+					<div class="alert alert-success alert-dismissible" id="cvAlert">
+						<a href="#" class="close">&times;</a>
+						<strong>Success!</strong> Adding Data
+					  </div>
+
+					<!--<input class="form-control" id="deletedirectoryTextcg" type="text"  placeholder="Directory code" required>-->
+					<div class="form-group">
+						<label for="deletedirectoryTextcg">Directory</label>
+						<select class="form-control" id="deletedirectoryTextcg">
+
+						</select>
+					</div>
+
+
+			  <button class="saveBtn uk-button uk-button-danger" onclick="confirmCgDel()"><span uk-icon="check"></span> Delete</button>
+				  </div>
+
+				  <!-- Modal footer -->
+
+				</div>
+			  </div>
+			</div>
+
+
+			<!-- confirm dialog  modal -->
+			 <div class="modal fade" id="ConfirmCgModal" >
+				<div class="modal-dialog modal-dialog-centered modal-sm " >
+					<div class="modal-content no-round-border">
+
+						<div class="modal-body text-center">
+							<h1 class="display-1"><span class="fa fa-question-circle-o text-question"></span></h1>
+							<h3 class="text-secondary">Are you sure?</h3><br>
+							<button class="uk-button uk-button-danger  no-round-border" id="confirm-delete-btn" onclick="delete_DataCg()">Delete</button>&nbsp;
+							<button class="uk-button uk-button-default  no-round-border" id="cancel-cg-btn">Cancel</button>
+						</div>
+					</div>
+				</div>
+			 </div>
+
+
+
+
+
+		<!--filter by status-->
+
+
+
+			 <!-- Button to Open the Modal -->
+			<button  type="button" class="uk-button uk-button-secondary" data-toggle="modal" data-target="#cgfilterStatusDataModal"><span class="fa fa-filter"></span> Filter by Status :
+			 <span id="cg-filter-type" > </span>
+			</button>
+
+			<!-- The Modal -->
+			<div class="modal" id="cgfilterStatusDataModal">
+			  <div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+
+				  <!-- Modal Header -->
+				  <div class="modal-header">
+					<h4 class="modal-title">Filter Data</h4>
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				  </div>
+
+				  <!-- Modal body -->
+				  <div class="modal-body">
+					<!--<input class="form-control" id="deletedirectoryText" type="text"  placeholder="Directory code" required>-->
+					<div class="form-group">
+						<label for="cgfilterStatusText">Status</label>
+						<select class="form-control" id="cgfilterStatusText">
+							<option value="All">All</option>
+							<option value="n/a">n/a</option>
+							<option value="Emailed">Emailed</option>
+							<option value="Approved">Approved</option>
+							<option value="Shipped">Shipped</option>
+
+						</select>
+					</div>
+
+			  <button class="saveBtn uk-button uk-button-primary" onclick="cgaddFilter()"><span uk-icon="check"></span> Ok</button>
+				  </div>
+
+				  <!-- Modal footer -->
+
+				</div>
+			  </div>
+			</div>
+		<!--filter status end -->
+		
+		  
+		  
+
+	   <div class="cv-container container-fluid">
+			<table   class="table table-borderless  table-hover " id="cg_body_div">
+				<thead class="bg-dark text-light">
+					<tr >
+						<td>Date</td>
+						<td>Directory Code</td>
+						<td>Directory Name</td>
+						<td>YPPA Code</td>
+						<td>Due at Printer</td>
+						<td colspan="2">Remarks</td>
+						<td>Status</td>
+					</tr>
+
+				</thead>
+				<tbody id="cg_body">
+				</tbody>
+			</table>
+		</div>
+
+
+
+
+  </div>
+
+
+
+  <!--DCI-->
+  <div id="dci-cont" class="tab-pane container fade dci-tab">
+
+			     <h1>DCI Tracker</h1><button type="button" class="btn btn-default text-dark bg-light" disabled>
+		  Total Count <span class="badge badge-dark " id="dciCountText"> </span>
+		</button>
+
+		<button type="button" class="btn btn-warning text-light  " data-toggle="modal" data-target="#dciPoDataModal">
+		<span id="po-due-icon" class="fa fa-exclamation-triangle"></span>
+		  5 Week PO Report <span class="badge badge-light" id="dciPOCountText"> </span>
+		</button>
+		 <!--shipping-->
+
+		<!-- The Modal -->
+		<div class="modal container-fluid" id="dciPoDataModal" >
+		  <div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+
+			  <!-- Modal Header -->
+			  <div class="modal-header">
+				<h4 class="modal-title">5 Week PO Report <small id="Dcidate-indicator"></small></h4>
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+			  </div>
+
+			  <!-- Modal body -->
+			  <div class="modal-body">
+
+				<div >
+					<table  class="table   table-hover data-container">
+						<!--<thead >
+							<tr class="">
+								<th>Directory Code</th>
+								<th>Directory Name</th>
+								<th>Remarks</th>
+								<th>Status</th>
+							</tr>
+						</thead>-->
+						<tbody id="dciPo_body">
+						</tbody>
+					</table>
+				</div>
+
+			  </div>
+
+			  <!-- Modal footer -->
+				<hr>
+			</div>
+		  </div>
+		</div>
+
+		 <!-- end-->
+
+
+
+
+		<hr>
+
+		<!-- Adding Data Form -->
+
+		<!-- Button to Open the Modal -->
+		<button type="button" class="uk-button uk-button-primary" data-toggle="modal" data-target="#addDatadciModal">
+		<span uk-icon="plus-circle"></span>
+		  Add Data
+		</button>
+
+		<!-- The Modal -->
+		<div class="modal" id="addDatadciModal">
+		  <div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+
+			  <!-- Modal Header -->
+			  <div class="modal-header">
+				<h4 class="modal-title">Add Directory</h4>
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+			  </div>
+
+			  <!-- Modal body -->
+			  <div class="modal-body">
+				<div class="alert alert-success alert-dismissible" id="cvAlert">
+					<a href="#" class="close">&times;</a>
+					<strong>Success!</strong> Adding Data
+				  </div>
+
+				<input class="form-control" id="directorydciText" type="text"  placeholder="Directory code" required>
+				<div class="form-group">
+					<label for="duedciText">PO Due Date</label>
+					<input class="form-control" id="duedciText" type="date"  placeholder="PO Due Date" required>
+				</div>
+				<!--<input class="form-control" id="remarksCgText" type="text"  placeholder="Remarks" required>-->
+				<!--<input class="form-control" id="statusCgText" type="text"  placeholder="Status" required>-->
+				<div class="form-group">
+					<label for="statusdciText">Status</label>
+					<select class="form-control" id="statusdciText">
+						<option value="n/a">n/a</option>
+						<option value="Done">Done</option>
+						<option value="Res">Res</option>
+					</select>
+				</div>
+
+				<button class="saveBtn uk-button uk-button-primary" onclick="save_DataDci()"><span uk-icon="pull"></span> Save</button>
+
+			  </div>
+
+			  <!-- Modal footer -->
+
+			</div>
+		  </div>
+		</div>
+
+		 <!--end of add data form -->
+
+
+
+
+		<!-- Updating Status Form -->
+
+		 <!-- Button to Open the Modal -->
+		<button type="button" class="uk-button uk-button-default" data-toggle="modal" data-target="#updateStatusModaldci">
+		<span uk-icon="file-edit"></span>
+		  Update Status
+		</button>
+
+		<!-- The Modal -->
+		<div class="modal" id="updateStatusModaldci">
+		  <div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+
+			  <!-- Modal Header -->
+			  <div class="modal-header">
+				<h4 class="modal-title">Update Status</h4>
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+			  </div>
+
+			  <!-- Modal body -->
+			  <div class="modal-body">
+				<div class="alert alert-success alert-dismissible" id="cvAlert">
+					<a href="#" class="close">&times;</a>
+					<strong>Success!</strong> Adding Data
+				  </div>
+
+				<!--<input class="form-control" id="updatedirectoryTextcg" type="text"  placeholder="Directory code" required>-->
+				<div class="form-group">
+						<label for="updatedirectoryTextcg">Directory</label>
+						<select class="form-control" id="updatedirectoryTextdci">
+
+						</select>
+					</div>
+				<!--<input class="form-control" id="updatestatusTextcg" type="text"  placeholder="Status" required>-->
+				<div class="form-group">
+					<label for="updatestatusTextdci">Status</label>
+					<select class="form-control" id="updatestatusTextdci">
+						<option value="n/a">n/a</option>
+						<option value="Done">Done</option>
+						<option value="Res">Res</option>
+					</select>
+				</div>
+
+				<button class="saveBtn uk-button uk-button-primary" onclick="update_StatusDci()"><span uk-icon="check"></span> Update</button>
+			  </div>
+
+			  <!-- Modal footer -->
+
+			</div>
+		  </div>
+		</div>
+		<!--update Status end-->
+
+
+
+
+			 <!-- Delete data Form -->
+
+			 <!-- Button to Open the Modal -->
+			<button type="button" class="uk-button uk-button-danger" data-toggle="modal" data-target="#deleteDataModaldci">
+			<span uk-icon="trash"></span>
+			  Delete Data
+			</button>
+
+			<!-- The Modal -->
+			<div class="modal" id="deleteDataModaldci">
+			  <div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+
+				  <!-- Modal Header -->
+				  <div class="modal-header">
+					<h4 class="modal-title">Delete Data</h4>
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				  </div>
+
+				  <!-- Modal body -->
+				  <div class="modal-body">
+					<div class="alert alert-success alert-dismissible" id="cvAlert">
+						<a href="#" class="close">&times;</a>
+						<strong>Success!</strong> Adding Data
+					  </div>
+
+					<!--<input class="form-control" id="deletedirectoryTextcg" type="text"  placeholder="Directory code" required>-->
+					<div class="form-group">
+						<label for="deletedirectoryTextdci">Directory</label>
+						<select class="form-control" id="deletedirectoryTextdci">
+
+						</select>
+					</div>
+
+
+			  <button class="saveBtn uk-button uk-button-danger" onclick="confirmDciDel()"><span uk-icon="check"></span> Delete</button>
+				  </div>
+
+				  <!-- Modal footer -->
+
+				</div>
+			  </div>
+			</div>
+
+		<!-- confirm dialog  modal -->
+			 <div class="modal fade" id="ConfirmDciModal" >
+				<div class="modal-dialog modal-dialog-centered modal-sm " >
+					<div class="modal-content no-round-border">
+
+						<div class="modal-body text-center">
+							<h1 class="display-1"><span class="fa fa-question-circle-o  text-question"></span></h1>
+							<h3 class="text-secondary">Are you sure?</h3><br>
+							<button class="uk-button uk-button-danger  no-round-border" id="confirm-delete-btn" onclick="delete_DataDci()">Delete</button>&nbsp;
+							<button class="uk-button uk-button-default  no-round-border" id="cancel-dci-btn">Cancel</button>
+						</div>
+					</div>
+				</div>
+			 </div>
+
+	   <div class="cv-container container-fluid">
+			<table  class="table table-borderless table-hover data-container">
+				<thead class="bg-dark text-light">
+					<tr >
+						<td>Date</td>
+						<td>Directory Code</td>
+						<td>PO Due Date</td>
+						<td>Status</td>
+					</tr>
+				</thead>
+				<tbody id="dci_body">
+				</tbody>
+			</table>
+		</div>
+
+
+
+  </div>
+
+
+
+	<div id="act-cont" class="tab-pane container fade act-tab">
+
+		 <h1>Activity Log</h1><hr>
+
+		<!-- Adding Data Form -->
+
+		<!-- Button to Open the Modal -->
+		<button type="button" class="uk-button uk-button-primary" data-toggle="modal" data-target="#addDataActModal">
+		<span uk-icon="plus-circle"></span>
+		  Add Data
+		</button>
+
+		<!-- The Modal -->
+		<div class="modal" id="addDataActModal">
+		  <div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+
+			  <!-- Modal Header -->
+			  <div class="modal-header">
+				<h4 class="modal-title">Add Data</h4>
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+			  </div>
+
+			  <!-- Modal body -->
+			  <div class="modal-body">
+				<div class="alert alert-success alert-dismissible" id="cvAlert">
+					<a href="#" class="close">&times;</a>
+					<strong>Success!</strong> Adding Data
+				  </div>
+
+				<input class="form-control" id="directoryTextact" type="text"  placeholder="Directory code" required>
+				<input class="form-control" id="volumeCountText" type="text"  placeholder="Volume/Page Count" required>
+				<!--<input class="form-control" id="remarksCgText" type="text"  placeholder="Remarks" required>-->
+				<!--<input class="form-control" id="statusCgText" type="text"  placeholder="Status" required>-->
+				<div class="form-group">
+					<label for="actTypeText">Activity Type</label>
+					<select class="form-control" id="actTypeText">
+						<option value="Cv">Cv</option>
+						<option value="Cg">Cg</option>
+						<option value="Dci">Dci</option>
+
+					</select>
+				</div>
+				<div class="form-group">
+					<label for="actDescText">Description</label>
+					<select class="form-control" id="actDescText">
+						<option value="none">none</option>
+						<option value="Proofing">Proofing</option>
+						<option value="Reproof(spine size)">Reproof(spine size)</option>
+						<option value="Update(Ad)">Update(Ad)</option>
+						<option value="Rework">Rework</option>
+						<option value="Shipping">Shipping</option>
+
+
+					</select>
+				</div>
+
+				<button class="saveBtn uk-button uk-button-primary" onclick="save_DataAct()"><span uk-icon="pull"></span> Save</button>
+
+			  </div>
+
+			  <!-- Modal footer -->
+
+			</div>
+		  </div>
+		</div>
+
+		 <!--end of add data form -->
+
+
+
+
+
+
+			 <!-- Delete data Form -->
+
+			 <!-- Button to Open the Modal -->
+			<button type="button" class="uk-button uk-button-danger" data-toggle="modal" data-target="#deleteDataModalact">
+			<span uk-icon="trash"></span>
+			  Delete Data
+			</button>
+
+			<!-- The Modal -->
+			<div class="modal" id="deleteDataModalact">
+			  <div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+
+				  <!-- Modal Header -->
+				  <div class="modal-header">
+					<h4 class="modal-title">Delete Data</h4>
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				  </div>
+
+				  <!-- Modal body -->
+				  <div class="modal-body">
+					<div class="alert alert-success alert-dismissible" id="cvAlert">
+						<a href="#" class="close">&times;</a>
+						<strong>Success!</strong> Adding Data
+					  </div>
+
+					<!--<input class="form-control" id="deletedirectoryTextcg" type="text"  placeholder="Directory code" required>-->
+					<div class="form-group">
+						<label for="deletedirectoryTextact">Directory</label>
+						<select class="form-control" id="deletedirectoryTextact">
+
+						</select>
+					</div>
+
+
+			  <button class="saveBtn uk-button uk-button-danger" onclick="confirmActDel()"><span uk-icon="check"></span> Delete</button>
+				  </div>
+
+				  <!-- Modal footer -->
+
+				</div>
+			  </div>
+			</div>
+
+
+
+		   <!-- confirm dialog  modal -->
+			 <div class="modal fade" id="ConfirmActModal" >
+				<div class="modal-dialog modal-dialog-centered modal-sm " >
+					<div class="modal-content no-round-border">
+
+						<div class="modal-body text-center">
+							<h1 class="display-1"><span class="fa fa-question-circle-o  text-question"></span></h1>
+							<h3 class="text-secondary">Are you sure?</h3><br>
+							<button class="uk-button uk-button-danger  no-round-border" id="confirm-delete-btn" onclick="delete_DataAct()">Delete</button>&nbsp;
+							<button class="uk-button uk-button-default  no-round-border" id="cancel-act-btn">Cancel</button>
+						</div>
+					</div>
+				</div>
+			 </div>
+
+
+	   <div class="act-container ">
+			<table  class="table table-borderless  table-hover data-container">
+				<thead class="bg-dark text-light">
+					<tr >
+						<td>Date</td>
+						<td>Directory Code</td>
+						<td>Volume / Page Count</td>
+					</tr>
+				</thead>
+
+					<tbody id="act_body">
+					</tbody>
+
+			</table>
+		</div>
+
+	</div>
+</div>
+
+	<!--brainstorm-->
+
+		<div id="brainstorm" class="card float-right">
+			<div class="card-header bg-dark text-light brn-close">
+				<span >Collaborate</span>
+			</div>
+			<div >
+				<div  class="card-body" >
+					 <table class="table table-borderless chat" style="border:none;">
+							<tbody id="brn-body">
+							</tbody>
+						</table>
+				</div>
+				<div  class="card-footer">
+					<div class="row">
+						<div class="col-sm-10">
+							<input  class="uk-input" type="text" id="message-content" placeholder="type a message....">
+						</div>
+						<div class="col-sm-2">
+							<button class="uk-button uk-button-primary" id="send-message-btn" onclick="sendBtn()"><span class="fa fa-paper-plane"></span></button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	<!--links-->
+	<div id="links" class="card ">
+		<div class="card-header bg-dark text-light links-close">
+			My Links
+		</div>
+		<div class="card-body">
+			<table class="table table-borderless chat" style="border:none;">
+							<tbody id="links-body">
+
+							</tbody>
+						</table>
+		</div>
+		<div class="card-footer">
+			<div class="row">
+				<div class="col-sm-10">
+					<input  class="uk-input fullwidth" type="text" id="links-title" placeholder="Title...">
+					<input  class="uk-input" type="text" id="links-content" placeholder="Link........">
+				</div>
+				<div class="col-sm-2">
+					<button class="uk-button uk-button-primary btn-block" id="add-links-btn" onclick="saveLinksBtn()"><span uk-icon="pull"></span>Save</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!--links-->
+	<div id="notes" class="card ">
+		<div class="card-header bg-dark text-light notes-close">
+			My Notes
+		</div>
+		<div class="card-body">
+			<table class="table table-borderless chat" style="border:none;">
+							<tbody id="notes-body">
+
+							</tbody>
+						</table>
+		</div>
+		<div class="card-footer uk-background-muted">
+			<div class="row">
+				<div class="col-sm-10">
+					<input  class="uk-input fullwidth" type="text" id="notes-title" placeholder="Title...">
+					<textarea  class="uk-textarea"  id="notes-content" placeholder="type a note........"></textarea>
+				</div>
+				<div class="col-sm-2">
+					<button class="btn-block uk-button uk-button-primary" id="add-notes-btn" onclick="saveNotesBtn()"><span uk-icon="pull"></span> Save</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+	<div class="footer text-right ">
+		<!--<button id="test-btn" class="btn btn-dark">test</button>-->
+	<div class="uk-button-group">
+		<button id="notes-btn-toggle" class="uk-button uk-button-secondary"><span uk-icon="file"></span> My Notes</button>
+		
+    
+		<button id="links-btn-toggle" class="uk-button uk-button-secondary"><span uk-icon="link"></span> My Links</button>
+		<button id="brn-btn" class="uk-button uk-button-secondary brain-btn"><span uk-icon="users"></span> Collaborate</button>
+	</div>
+	</div>
+
+
+
+
+
+
+	<script src="https://www.gstatic.com/firebasejs/5.0.3/firebase.js"></script>
+	<script src="js/config.js">
+	  
+	</script>
+
+
+	<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	
+	
+	
+	<script src="js/main.js">
+	</script>
+	
+  </body>
+</html>
