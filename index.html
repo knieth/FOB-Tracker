@@ -79,7 +79,7 @@
 		<li id="userBtn" class="nav-item dropdown">
 			<i class="nav-link dropdown-toggle" data-toggle="dropdown" ><i class="fa fa-user-circle" style="font-size:21px;"><span id="Email-display"></span></i></i>
 			<div class="dropdown-menu">
-			  <a class="dropdown-item text-danger" href="javascript:;" onclick="SignOut()" >Sign Out</a>
+			  <a class="dropdown-item text-danger" id="signOut">Sign Out</a>
 			</div>
 		</li>
         <!--<li id="logoutBtn" class="nav-item"><a class="nav-link text-danger" href="javascript:;" onclick="SignOut()" >Sign Out</a></li>-->
@@ -206,18 +206,18 @@
 
 
    <div class="login-cover" >
-		<div class="login-dialog container bg-light ">
+		<div class="login-dialog container">
 		<center>
-			<h1 class="display-4">
+			<h2 class="display-5 text-dark headline">
 				<span  uk-icon="icon:copy; ratio:2"></span> FOB
-				<small> Tracker</small>
-			</h1>
+				Tracker
+			</h2>
 		</center>
 			<input class="form-control login-input" type="email" id="loginEmail" placeholder="Email">
 			<input class="form-control login-input" type="password" id="loginPassword" placeholder="Password">
 
 			<p id="loginError" class="text-danger"></p>
-			<button class="btn btn-warning btn-block text-light " id="loginBtn" onclick="login()">Sign In</button>
+			<button class="btn btn-dark text-light " id="loginBtn" onclick="login()">Sign In</button>
 			<br>
 
 

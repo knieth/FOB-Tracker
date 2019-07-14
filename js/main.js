@@ -860,10 +860,11 @@ $('#ErrorModal').click(function(){
 
 
 
-
+var signOutBtn = document.getElementById("signOut");
 //sign out
-function SignOut (){
-
+signOutBtn.addEventListener("click", SignOut)
+function SignOut (e){
+	  e.preventDefault();
       firebase.auth().signOut().then(function() {
         // Sign-out successful.
       }, function(error) {
